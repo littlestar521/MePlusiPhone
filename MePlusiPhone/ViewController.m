@@ -10,9 +10,11 @@
 #import "MePlus.pch"
 #import "LeftView.h"
 #import "RobotOnLineViewController.h"
+#import "AGDChatViewController.h"
 
 @interface ViewController ()
 
+- (IBAction)RTVAction:(id)sender;
 @end
 
 @implementation ViewController
@@ -50,4 +52,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)RTVAction:(id)sender {
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
+    UIStoryboard *agdSB = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
+    AGDChatViewController *AGDVC = [agdSB instantiateViewControllerWithIdentifier:@"AGDChatViewController"];
+    [self.navigationController pushViewController:AGDVC animated:YES];
+    
+}
 @end

@@ -17,6 +17,15 @@
 		18F216A11CF5999E00B66709 /* MePlusiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F216A01CF5999E00B66709 /* MePlusiPhoneTests.m */; };
 		18F216AC1CF5999E00B66709 /* MePlusiPhoneUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F216AB1CF5999E00B66709 /* MePlusiPhoneUITests.m */; };
 		18F5957E1CF691B300055D84 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F5957D1CF691B300055D84 /* UIViewController+Common.m */; };
+		1B4253C51CFD880800610857 /* AGDChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4253A91CFD880800610857 /* AGDChatCell.m */; };
+		1B4253C61CFD880800610857 /* AGDChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4253AB1CFD880800610857 /* AGDChatViewController.m */; };
+		1B4253C71CFD880800610857 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B4253AC1CFD880800610857 /* Localizable.strings */; };
+		1B4253C81CFD880800610857 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B4253AE1CFD880800610857 /* Main.strings */; };
+		1B4253C91CFD880800610857 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B4253B01CFD880800610857 /* Images.xcassets */; };
+		1B4253CB1CFD880800610857 /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B4253B21CFD880800610857 /* Launch.xib */; };
+		1B4253CC1CFD880800610857 /* AGDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4253B51CFD880800610857 /* AGDLoginViewController.m */; };
+		1B4253CE1CFD880800610857 /* AGDSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4253B91CFD880800610857 /* AGDSplashViewController.m */; };
+		1B4253D41CFD907B00610857 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4253D31CFD907B00610857 /* Chat.storyboard */; };
 		1B7D73911CFD3782005856A4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73901CFD3782005856A4 /* AudioToolbox.framework */; };
 		1B7D73931CFD378B005856A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73921CFD378B005856A4 /* AVFoundation.framework */; };
 		1B7D73951CFD3796005856A4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73941CFD3796005856A4 /* CoreMedia.framework */; };
@@ -69,6 +78,21 @@
 		18F5957D1CF691B300055D84 /* UIViewController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Common.m"; sourceTree = "<group>"; };
 		18F5957F1CF691F400055D84 /* MePlusTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePlusTools.h; sourceTree = "<group>"; };
 		18F595801CF6921200055D84 /* MePlus.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePlus.pch; sourceTree = "<group>"; };
+		1B4253A81CFD880800610857 /* AGDChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGDChatCell.h; sourceTree = "<group>"; };
+		1B4253A91CFD880800610857 /* AGDChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGDChatCell.m; sourceTree = "<group>"; };
+		1B4253AA1CFD880800610857 /* AGDChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGDChatViewController.h; sourceTree = "<group>"; };
+		1B4253AB1CFD880800610857 /* AGDChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGDChatViewController.m; sourceTree = "<group>"; };
+		1B4253AD1CFD880800610857 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1B4253AF1CFD880800610857 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1B4253B01CFD880800610857 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1B4253B21CFD880800610857 /* Launch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Launch.xib; sourceTree = "<group>"; };
+		1B4253B41CFD880800610857 /* AGDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGDLoginViewController.h; sourceTree = "<group>"; };
+		1B4253B51CFD880800610857 /* AGDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGDLoginViewController.m; sourceTree = "<group>"; };
+		1B4253B81CFD880800610857 /* AGDSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGDSplashViewController.h; sourceTree = "<group>"; };
+		1B4253B91CFD880800610857 /* AGDSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGDSplashViewController.m; sourceTree = "<group>"; };
+		1B4253BF1CFD880800610857 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		1B4253C01CFD880800610857 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		1B4253D31CFD907B00610857 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		1B7D73901CFD3782005856A4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1B7D73921CFD378B005856A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1B7D73941CFD3796005856A4 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -139,6 +163,7 @@
 		18F216851CF5999E00B66709 /* MePlusiPhone */ = {
 			isa = PBXGroup;
 			children = (
+				1B4253A41CFD880800610857 /* AgoraDemo */,
 				18F595781CF690C900055D84 /* Library */,
 				18F595761CF690A200055D84 /* Classes */,
 				18F216891CF5999E00B66709 /* AppDelegate.h */,
@@ -212,6 +237,7 @@
 		18F5957A1CF6913A00055D84 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1B4253D31CFD907B00610857 /* Chat.storyboard */,
 				18617C401CF6B3C900822F19 /* LeftView.h */,
 				18617C411CF6B3C900822F19 /* LeftView.m */,
 			);
@@ -227,6 +253,49 @@
 				1B7D73A41CFD3F58005856A4 /* VideoViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		1B4253A41CFD880800610857 /* AgoraDemo */ = {
+			isa = PBXGroup;
+			children = (
+				1B4253A71CFD880800610857 /* Chat */,
+				1B4253AC1CFD880800610857 /* Localizable.strings */,
+				1B4253AE1CFD880800610857 /* Main.strings */,
+				1B4253B01CFD880800610857 /* Images.xcassets */,
+				1B4253B21CFD880800610857 /* Launch.xib */,
+				1B4253B31CFD880800610857 /* Login */,
+				1B4253B71CFD880800610857 /* Splash */,
+			);
+			path = AgoraDemo;
+			sourceTree = "<group>";
+		};
+		1B4253A71CFD880800610857 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				1B4253A81CFD880800610857 /* AGDChatCell.h */,
+				1B4253A91CFD880800610857 /* AGDChatCell.m */,
+				1B4253AA1CFD880800610857 /* AGDChatViewController.h */,
+				1B4253AB1CFD880800610857 /* AGDChatViewController.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		1B4253B31CFD880800610857 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1B4253B41CFD880800610857 /* AGDLoginViewController.h */,
+				1B4253B51CFD880800610857 /* AGDLoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1B4253B71CFD880800610857 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				1B4253B81CFD880800610857 /* AGDSplashViewController.h */,
+				1B4253B91CFD880800610857 /* AGDSplashViewController.m */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		1B7D73A01CFD3A52005856A4 /* Framework */ = {
@@ -331,6 +400,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 18F2167A1CF5999E00B66709;
 			productRefGroup = 18F216841CF5999E00B66709 /* Products */;
@@ -349,8 +419,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4253C71CFD880800610857 /* Localizable.strings in Resources */,
 				18F216961CF5999E00B66709 /* LaunchScreen.storyboard in Resources */,
+				1B4253C91CFD880800610857 /* Images.xcassets in Resources */,
+				1B4253CB1CFD880800610857 /* Launch.xib in Resources */,
 				18F216931CF5999E00B66709 /* Assets.xcassets in Resources */,
+				1B4253C81CFD880800610857 /* Main.strings in Resources */,
+				1B4253D41CFD907B00610857 /* Chat.storyboard in Resources */,
 				18F216911CF5999E00B66709 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,8 +455,12 @@
 				18F2168E1CF5999E00B66709 /* ViewController.m in Sources */,
 				1BAF3A161CFBE6AE00ACE490 /* RobotOnLineViewController.m in Sources */,
 				18F5957E1CF691B300055D84 /* UIViewController+Common.m in Sources */,
+				1B4253C61CFD880800610857 /* AGDChatViewController.m in Sources */,
+				1B4253CC1CFD880800610857 /* AGDLoginViewController.m in Sources */,
+				1B4253C51CFD880800610857 /* AGDChatCell.m in Sources */,
 				1B7D73A51CFD3F58005856A4 /* VideoViewController.m in Sources */,
 				18F2168B1CF5999E00B66709 /* AppDelegate.m in Sources */,
+				1B4253CE1CFD880800610857 /* AGDSplashViewController.m in Sources */,
 				18F216881CF5999E00B66709 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +511,24 @@
 				18F216951CF5999E00B66709 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1B4253AC1CFD880800610857 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B4253AD1CFD880800610857 /* en */,
+				1B4253BF1CFD880800610857 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1B4253AE1CFD880800610857 /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B4253AF1CFD880800610857 /* en */,
+				1B4253C01CFD880800610857 /* zh-Hans */,
+			);
+			name = Main.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -524,7 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 2891529590@qq.com (G7J8NS9T35)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -533,7 +630,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MePlusiPhone/MePlus.pch";
 				INFOPLIST_FILE = MePlusiPhone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Crasheye",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = MJJ.MePlusiPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -554,7 +657,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MePlusiPhone/MePlus.pch";
 				INFOPLIST_FILE = MePlusiPhone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Crasheye",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = MJJ.MePlusiPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
