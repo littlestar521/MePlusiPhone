@@ -17,6 +17,15 @@
 		18F216A11CF5999E00B66709 /* MePlusiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F216A01CF5999E00B66709 /* MePlusiPhoneTests.m */; };
 		18F216AC1CF5999E00B66709 /* MePlusiPhoneUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F216AB1CF5999E00B66709 /* MePlusiPhoneUITests.m */; };
 		18F5957E1CF691B300055D84 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F5957D1CF691B300055D84 /* UIViewController+Common.m */; };
+		1B7D73911CFD3782005856A4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73901CFD3782005856A4 /* AudioToolbox.framework */; };
+		1B7D73931CFD378B005856A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73921CFD378B005856A4 /* AVFoundation.framework */; };
+		1B7D73951CFD3796005856A4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73941CFD3796005856A4 /* CoreMedia.framework */; };
+		1B7D73971CFD37A2005856A4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73961CFD37A2005856A4 /* CoreTelephony.framework */; };
+		1B7D73991CFD37AF005856A4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73981CFD37AF005856A4 /* CoreMotion.framework */; };
+		1B7D739B1CFD37B8005856A4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */; };
+		1B7D739D1CFD37CD005856A4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D739C1CFD37CD005856A4 /* libc++.tbd */; };
+		1B7D73A21CFD3B42005856A4 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73A11CFD3B42005856A4 /* AgoraRtcEngineKit.framework */; };
+		1B7D73A51CFD3F58005856A4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D73A41CFD3F58005856A4 /* VideoViewController.m */; };
 		1BAF3A161CFBE6AE00ACE490 /* RobotOnLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +69,16 @@
 		18F5957D1CF691B300055D84 /* UIViewController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Common.m"; sourceTree = "<group>"; };
 		18F5957F1CF691F400055D84 /* MePlusTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePlusTools.h; sourceTree = "<group>"; };
 		18F595801CF6921200055D84 /* MePlus.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MePlus.pch; sourceTree = "<group>"; };
+		1B7D73901CFD3782005856A4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1B7D73921CFD378B005856A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1B7D73941CFD3796005856A4 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		1B7D73961CFD37A2005856A4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		1B7D73981CFD37AF005856A4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1B7D739C1CFD37CD005856A4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		1B7D73A11CFD3B42005856A4 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
+		1B7D73A31CFD3F58005856A4 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		1B7D73A41CFD3F58005856A4 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		1BAF3A141CFBE6AE00ACE490 /* RobotOnLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotOnLineViewController.h; sourceTree = "<group>"; };
 		1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotOnLineViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +88,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B7D73A21CFD3B42005856A4 /* AgoraRtcEngineKit.framework in Frameworks */,
+				1B7D739D1CFD37CD005856A4 /* libc++.tbd in Frameworks */,
+				1B7D739B1CFD37B8005856A4 /* SystemConfiguration.framework in Frameworks */,
+				1B7D73991CFD37AF005856A4 /* CoreMotion.framework in Frameworks */,
+				1B7D73971CFD37A2005856A4 /* CoreTelephony.framework in Frameworks */,
+				1B7D73951CFD3796005856A4 /* CoreMedia.framework in Frameworks */,
+				1B7D73931CFD378B005856A4 /* AVFoundation.framework in Frameworks */,
+				1B7D73911CFD3782005856A4 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +149,7 @@
 				18F216921CF5999E00B66709 /* Assets.xcassets */,
 				18F216941CF5999E00B66709 /* LaunchScreen.storyboard */,
 				18F216971CF5999E00B66709 /* Info.plist */,
+				1B7D73A01CFD3A52005856A4 /* Framework */,
 				18F216861CF5999E00B66709 /* Supporting Files */,
 			);
 			path = MePlusiPhone;
@@ -195,8 +223,26 @@
 			children = (
 				1BAF3A141CFBE6AE00ACE490 /* RobotOnLineViewController.h */,
 				1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */,
+				1B7D73A31CFD3F58005856A4 /* VideoViewController.h */,
+				1B7D73A41CFD3F58005856A4 /* VideoViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		1B7D73A01CFD3A52005856A4 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				1B7D739C1CFD37CD005856A4 /* libc++.tbd */,
+				1B7D73961CFD37A2005856A4 /* CoreTelephony.framework */,
+				1B7D73941CFD3796005856A4 /* CoreMedia.framework */,
+				1B7D73921CFD378B005856A4 /* AVFoundation.framework */,
+				1B7D73901CFD3782005856A4 /* AudioToolbox.framework */,
+				1B7D73981CFD37AF005856A4 /* CoreMotion.framework */,
+				1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */,
+				1B7D73A11CFD3B42005856A4 /* AgoraRtcEngineKit.framework */,
+			);
+			name = Framework;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +312,7 @@
 				TargetAttributes = {
 					18F216821CF5999E00B66709 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6K2QGZ2A9Y;
 					};
 					18F2169B1CF5999E00B66709 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -333,6 +380,7 @@
 				18F2168E1CF5999E00B66709 /* ViewController.m in Sources */,
 				1BAF3A161CFBE6AE00ACE490 /* RobotOnLineViewController.m in Sources */,
 				18F5957E1CF691B300055D84 /* UIViewController+Common.m in Sources */,
+				1B7D73A51CFD3F58005856A4 /* VideoViewController.m in Sources */,
 				18F2168B1CF5999E00B66709 /* AppDelegate.m in Sources */,
 				18F216881CF5999E00B66709 /* main.m in Sources */,
 			);
@@ -475,6 +523,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MePlusiPhone/MePlus.pch";
@@ -482,6 +536,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MJJ.MePlusiPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -489,6 +544,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MePlusiPhone/MePlus.pch";
@@ -496,6 +557,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MJJ.MePlusiPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
