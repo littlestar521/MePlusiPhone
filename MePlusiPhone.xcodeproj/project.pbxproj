@@ -33,9 +33,10 @@
 		1B7D73991CFD37AF005856A4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73981CFD37AF005856A4 /* CoreMotion.framework */; };
 		1B7D739B1CFD37B8005856A4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */; };
 		1B7D739D1CFD37CD005856A4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D739C1CFD37CD005856A4 /* libc++.tbd */; };
-		1B7D73A21CFD3B42005856A4 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73A11CFD3B42005856A4 /* AgoraRtcEngineKit.framework */; };
 		1B7D73A51CFD3F58005856A4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D73A41CFD3F58005856A4 /* VideoViewController.m */; };
 		1BAF3A161CFBE6AE00ACE490 /* RobotOnLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */; };
+		1BF384EA1CFE7894000F2179 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E71CFDA53C00610857 /* AgoraRtcEngineKit.framework */; };
+		1BF384EB1CFE78AF000F2179 /* libCrasheye.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E91CFDA54900610857 /* libCrasheye.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		1B4253BF1CFD880800610857 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1B4253C01CFD880800610857 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		1B4253D31CFD907B00610857 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		1B4253E71CFDA53C00610857 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcEngineKit.framework; path = libs/AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
+		1B4253E91CFDA54900610857 /* libCrasheye.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCrasheye.a; path = libs/Crasheye/libCrasheye.a; sourceTree = "<group>"; };
 		1B7D73901CFD3782005856A4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1B7D73921CFD378B005856A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1B7D73941CFD3796005856A4 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -100,7 +103,6 @@
 		1B7D73981CFD37AF005856A4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1B7D739C1CFD37CD005856A4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		1B7D73A11CFD3B42005856A4 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 		1B7D73A31CFD3F58005856A4 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		1B7D73A41CFD3F58005856A4 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		1BAF3A141CFBE6AE00ACE490 /* RobotOnLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotOnLineViewController.h; sourceTree = "<group>"; };
@@ -112,7 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B7D73A21CFD3B42005856A4 /* AgoraRtcEngineKit.framework in Frameworks */,
+				1BF384EB1CFE78AF000F2179 /* libCrasheye.a in Frameworks */,
+				1BF384EA1CFE7894000F2179 /* AgoraRtcEngineKit.framework in Frameworks */,
 				1B7D739D1CFD37CD005856A4 /* libc++.tbd in Frameworks */,
 				1B7D739B1CFD37B8005856A4 /* SystemConfiguration.framework in Frameworks */,
 				1B7D73991CFD37AF005856A4 /* CoreMotion.framework in Frameworks */,
@@ -163,7 +166,7 @@
 		18F216851CF5999E00B66709 /* MePlusiPhone */ = {
 			isa = PBXGroup;
 			children = (
-				1B4253A41CFD880800610857 /* AgoraDemo */,
+				1B4253A41CFD880800610857 /* Agora */,
 				18F595781CF690C900055D84 /* Library */,
 				18F595761CF690A200055D84 /* Classes */,
 				18F216891CF5999E00B66709 /* AppDelegate.h */,
@@ -255,7 +258,7 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		1B4253A41CFD880800610857 /* AgoraDemo */ = {
+		1B4253A41CFD880800610857 /* Agora */ = {
 			isa = PBXGroup;
 			children = (
 				1B4253A71CFD880800610857 /* Chat */,
@@ -266,6 +269,7 @@
 				1B4253B31CFD880800610857 /* Login */,
 				1B4253B71CFD880800610857 /* Splash */,
 			);
+			name = Agora;
 			path = AgoraDemo;
 			sourceTree = "<group>";
 		};
@@ -301,6 +305,8 @@
 		1B7D73A01CFD3A52005856A4 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				1B4253E91CFDA54900610857 /* libCrasheye.a */,
+				1B4253E71CFDA53C00610857 /* AgoraRtcEngineKit.framework */,
 				1B7D739C1CFD37CD005856A4 /* libc++.tbd */,
 				1B7D73961CFD37A2005856A4 /* CoreTelephony.framework */,
 				1B7D73941CFD3796005856A4 /* CoreMedia.framework */,
@@ -308,7 +314,6 @@
 				1B7D73901CFD3782005856A4 /* AudioToolbox.framework */,
 				1B7D73981CFD37AF005856A4 /* CoreMotion.framework */,
 				1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */,
-				1B7D73A11CFD3B42005856A4 /* AgoraRtcEngineKit.framework */,
 			);
 			name = Framework;
 			path = ..;
@@ -624,19 +629,21 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 2891529590@qq.com (G7J8NS9T35)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../libs/",
+					"$(PROJECT_DIR)/libs",
 				);
-				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MePlusiPhone/MePlus.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../libs/Crasheye/";
 				INFOPLIST_FILE = MePlusiPhone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Crasheye",
+					"$(PROJECT_DIR)/../libs/Crasheye/",
+					"$(PROJECT_DIR)/libs/Crasheye",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = MJJ.MePlusiPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -651,17 +658,19 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../libs/",
+					"$(PROJECT_DIR)/libs",
 				);
-				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MePlusiPhone/MePlus.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../libs/Crasheye/";
 				INFOPLIST_FILE = MePlusiPhone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Crasheye",
+					"$(PROJECT_DIR)/../libs/Crasheye/",
+					"$(PROJECT_DIR)/libs/Crasheye",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = MJJ.MePlusiPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";

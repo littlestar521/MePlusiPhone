@@ -23,6 +23,7 @@
     [self robotOnLine];
     
 }
+
 - (void)robotOnLine{
     //编号输入框
     UITextField *robotNum = [[UITextField alloc]initWithFrame:CGRectMake(20, kScreenHeight*2/3, kScreenWidth-40, 44)];

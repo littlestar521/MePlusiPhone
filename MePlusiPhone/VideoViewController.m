@@ -18,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+    
+    NSUserDefaults *userDefults = [NSUserDefaults standardUserDefaults];
+//    NSString *vendorKey  = [userDefults objectForKey:]
 }
 
 - (void)didReceiveMemoryWarning {
