@@ -27,11 +27,16 @@
 
     [self voiceAction];
     
-    [self anyAction];
+//    [self anyAction];
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAction:) name:@"notification" object:nil];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *vendorKey = [userDefaults objectForKey:AGDKeyVendorKey];
+    if (vendorKey) {
+        vendorKey = kAppKey;
+    }else{
     
-    
+    }
 
     
 }
@@ -67,6 +72,7 @@
     [self.view addSubview:voice];
     
 }
+//
 - (void)robotOnLineAction:(UIButton *)btn{
     
     RobotOnLineViewController *robotVC = [[RobotOnLineViewController alloc]init];
@@ -74,16 +80,11 @@
     
     
 }
-//- (void)showLeftBtnAction{
-//    LeftView *leftView = [[LeftView alloc]init];
-//    leftView.delegate = self;
-//    [self.view addSubview: leftView];
-//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//视频界面
 - (IBAction)RTVAction:(id)sender {
 //    if (<#condition#>) {
 //        <#statements#>

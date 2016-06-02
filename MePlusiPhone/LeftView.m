@@ -14,6 +14,7 @@
 @interface LeftView ()
 @property (nonatomic,strong)UIView *setView;
 @property (nonatomic,strong)UIView *backView;
+@property(nonatomic, strong)UILabel *number;
 
 @end
 @implementation LeftView
@@ -41,6 +42,7 @@
     self.backView.alpha = 0.0;
     [window addSubview:self.backView];
     
+    //信息展示view
     UIView *messageView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth-100, kScreenHeight/3)];
     messageView.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.7];
     [self.setView addSubview:messageView];
@@ -53,7 +55,8 @@
         userName.font = [UIFont systemFontOfSize:14];
         [messageView addSubview:userName];
         UILabel *number = [[UILabel alloc]initWithFrame:CGRectMake(20+[widthArray[i] integerValue], messageView.frame.size.height*2/3+24*i, 120, 24)];
-        number.text = @"";
+        number.backgroundColor = [UIColor yellowColor];
+        number.tag = i+100;
         number.font = [UIFont systemFontOfSize:14];
         [messageView addSubview:number];
         
@@ -73,6 +76,7 @@
         //按钮
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(0, kScreenHeight/3 + 44*i,  kScreenWidth-100,44);
+        btn.tag = 100+i;
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(setSelectAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.setView addSubview:btn];
@@ -103,7 +107,7 @@
 
 //通知传值
 - (void)changeLabelText:(NSNotification *)notification{
-    
+        
 }
 //移除通知
 - (void)dealloc{
