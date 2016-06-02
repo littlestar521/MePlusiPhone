@@ -8,7 +8,11 @@
 
 #import "RobotOnLineViewController.h"
 #import "MePlus.pch"
+#import "ViewController.h"
+
+
 @interface RobotOnLineViewController ()
+@property(nonatomic,strong)UITextField *robotNum;
 
 @end
 
@@ -22,17 +26,18 @@
     self.navigationController.navigationBar.backgroundColor = kMainColor;
     [self robotOnLine];
     
+    
 }
 
 - (void)robotOnLine{
     //编号输入框
-    UITextField *robotNum = [[UITextField alloc]initWithFrame:CGRectMake(20, kScreenHeight*2/3, kScreenWidth-40, 44)];
-    robotNum.borderStyle = UITextBorderStyleLine;
-    robotNum.placeholder = @"机器人ID";
-    robotNum.textColor = kMainColor;
-    [self.view addSubview:robotNum];
+    self.robotNum = [[UITextField alloc]initWithFrame:CGRectMake(20, kScreenHeight*2/3, kScreenWidth-40, 44)];
+    self.robotNum.borderStyle = UITextBorderStyleLine;
+    self.robotNum.placeholder = @"机器人ID";
+    self.robotNum.textColor = kMainColor;
+    [self.view addSubview:self.robotNum];
     //提示
-    UILabel *tip = [[UILabel alloc]initWithFrame:CGRectMake(20, kScreenHeight*2/3+44, robotNum.frame.size.width, 44)];
+    UILabel *tip = [[UILabel alloc]initWithFrame:CGRectMake(20, kScreenHeight*2/3+44, self.robotNum.frame.size.width, 44)];
     tip.textColor = kMainColor;
     tip.text = @"请认真填写机器人ID或通过扫描的方式";
     tip.textAlignment = NSTextAlignmentCenter;
@@ -40,7 +45,7 @@
     //绑定机器人按钮
     UIButton *bindingRobot = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [bindingRobot setBackgroundColor:kMainColor];
-    bindingRobot.frame = CGRectMake(20, kScreenHeight*2/3+44*2, robotNum.frame.size.width, 44);
+    bindingRobot.frame = CGRectMake(20, kScreenHeight*2/3+44*2, self.robotNum.frame.size.width, 44);
     [bindingRobot.layer setMasksToBounds:YES];
     [bindingRobot.layer setCornerRadius:10.0];
     [bindingRobot setTitle:@"绑定机器人" forState:UIControlStateNormal];
@@ -50,7 +55,7 @@
     //扫描机器人
     UIButton *scanRobot = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [scanRobot setBackgroundColor:kMainColor];
-    scanRobot.frame = CGRectMake(20, kScreenHeight*2/3+44*3+15, robotNum.frame.size.width, 44);
+    scanRobot.frame = CGRectMake(20, kScreenHeight*2/3+44*3+15, self.robotNum.frame.size.width, 44);
     [scanRobot.layer setMasksToBounds:YES];
     [scanRobot.layer setCornerRadius:10.0];
     [scanRobot setTitle:@"扫描机器人" forState:UIControlStateNormal];
@@ -59,12 +64,22 @@
     [self.view addSubview:scanRobot];
     
     
-    
 }
 - (void)bindingRobotAction{
+    //发送通知
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"message" object:nil userInfo:@{@"input": self.robotNum.text}];
+    UIStoryboard *viewSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *VC = [viewSB instantiateViewControllerWithIdentifier:@"ViewController"];
+    [self.navigationController pushViewController:VC animated:YES];
+    
     
 }
 - (void)scanRobotAction{
+    //发送通知
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"message" object:nil userInfo:@{@"input": self.robotNum.text}];
+    UIStoryboard *viewSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *VC = [viewSB instantiateViewControllerWithIdentifier:@"ViewController"];
+    [self.navigationController pushViewController:VC animated:YES];
     
 }
 

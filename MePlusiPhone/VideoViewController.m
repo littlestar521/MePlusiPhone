@@ -8,10 +8,12 @@
 
 #import "VideoViewController.h"
 #import <AgoraRtcEngineKit/AgoraRtcEngineKit.h>
+#import "AGDChatViewController.h"
 
 @interface VideoViewController ()
 
 @end
+
 
 @implementation VideoViewController
 
@@ -25,7 +27,13 @@
     self.navigationController.navigationBarHidden = YES;
     
     NSUserDefaults *userDefults = [NSUserDefaults standardUserDefaults];
-//    NSString *vendorKey  = [userDefults objectForKey:]
+    NSString *vendorKey  = [userDefults objectForKey:AGDKeyVendorKey];
+    if (vendorKey) {
+        
+    }else{
+        
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

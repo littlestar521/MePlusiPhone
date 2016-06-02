@@ -13,6 +13,7 @@
 #import "AGDChatViewController.h"
 
 @interface ViewController ()
+@property(nonatomic,strong)UIButton *actionBtn;
 
 - (IBAction)RTVAction:(id)sender;
 @end
@@ -23,20 +24,51 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self showLeftBtnWithName:@"首页"];
+
     [self voiceAction];
+    
+    [self anyAction];
+    //注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAction:) name:@"notification" object:nil];
+    
+    
 
     
 }
+- (void)anyAction{
+    self.actionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.actionBtn.frame = CGRectMake(kScreenWidth*3/4-60, kScreenHeight-80-60, 60, 60);
+    [self.actionBtn setBackgroundColor: [UIColor purpleColor]];
+    [self.actionBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [self.actionBtn addTarget:self action:@selector(resultAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.actionBtn];
+
+
+}
+- (void)resultAction:(UIButton *)btn{
+}
+- (void)changeAction:(NSNotification *)notification{
+    
+    
+}
+//移除通知
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 - (void)voiceAction{
+    
     UIButton *voice = [UIButton buttonWithType:UIButtonTypeCustom];
     voice.frame = CGRectMake(kScreenWidth*3/4, kScreenHeight-80, 60, 60);
     [voice setBackgroundColor: [UIColor redColor]];
-    [voice setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+//    [voice setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [voice setTitle:@"voice" forState:UIControlStateNormal];
     [voice addTarget:self action:@selector(robotOnLineAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:voice];
     
 }
 - (void)robotOnLineAction:(UIButton *)btn{
+    
     RobotOnLineViewController *robotVC = [[RobotOnLineViewController alloc]init];
     [self.navigationController pushViewController:robotVC animated:YES];
     

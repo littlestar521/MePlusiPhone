@@ -27,6 +27,11 @@
     return self;
 }
 - (void)configView{
+
+    //注册通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeLabelText:) name:@"message" object:nil];
+    
+    
     UIWindow *window = [[UIApplication sharedApplication].delegate  window];
     self.setView = [[UIView alloc]initWithFrame:CGRectMake(100-kScreenWidth, 0, kScreenWidth-100, kScreenHeight)];
     self.setView.backgroundColor = [UIColor whiteColor];
@@ -55,8 +60,6 @@
     }
     
     
-    
-
     NSArray *titleArray = @[@"首页",@"通话记录",@"设置"];
     for (int i = 0; i < 3; i++) {
         //按钮图片
@@ -76,6 +79,7 @@
         
         
     }
+    //添加轻拍手势
     UITapGestureRecognizer *disappear = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(disapearAction)];
     [self.backView addGestureRecognizer:disappear];
     [UIView animateWithDuration:0.5 animations:^{
@@ -87,6 +91,7 @@
     }];
 
 }
+//轻拍手势事件
 - (void)disapearAction{
     [UIView animateWithDuration:0.5 animations:^{
         //移出屏幕的frame
@@ -96,6 +101,15 @@
     }];
 }
 
+//通知传值
+- (void)changeLabelText:(NSNotification *)notification{
+    
+}
+//移除通知
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    
+}
 - (void)setSelectAction:(UIButton *)btn{
     switch (btn.tag) {
         case 100:
