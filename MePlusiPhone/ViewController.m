@@ -12,8 +12,12 @@
 #import "RobotOnLineViewController.h"
 #import "AGDChatViewController.h"
 
+static NSString *const AGDSegueID  = @"Chat";
+
 @interface ViewController ()
 @property(nonatomic,strong)UIButton *actionBtn;
+@property(nonatomic,strong)NSString *vendorKey;
+@property(nonatomic,strong)NSString *roomNum;
 
 - (IBAction)RTVAction:(id)sender;
 @end
@@ -30,16 +34,35 @@
 //    [self anyAction];
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAction:) name:@"notification" object:nil];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *vendorKey = [userDefaults objectForKey:AGDKeyVendorKey];
-    if (vendorKey) {
-        vendorKey = kAppKey;
-    }else{
+    self.roomNum = @"e3347dee5a6c11f5";
     
-    }
+    //
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    self.vendorKey = [userDefaults objectForKey:AGDKeyVendorKey];
+//    if (self.vendorKey) {
+        self.vendorKey = kAppKey;
+//    }else{
+//        NSLog(@"1234空值");
+//    }
 
     
 }
+#pragma mark  ------------- appKey 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if (![segue.identifier isEqualToString:AGDSegueID]) {
+        return;
+    }
+    AGDChatViewController *chatVC = segue.destinationViewController;
+    chatVC.dictionary = @{AGDKeyChannel:self.roomNum,AGDKeyVendorKey:self.vendorKey};
+    UIButton *button = (UIButton *)sender;
+    if (button.tag == 1) {
+        chatVC.chatType = AGDChatTypeDefault;
+    }
+    
+}
+
+
+
 - (void)anyAction{
     self.actionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.actionBtn.frame = CGRectMake(kScreenWidth*3/4-60, kScreenHeight-80-60, 60, 60);
@@ -56,11 +79,13 @@
     
     
 }
+#pragma  mark --------------- 移除通知
 //移除通知
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
+#pragma mark ---------------- voice
 - (void)voiceAction{
     
     UIButton *voice = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -86,12 +111,24 @@
 }
 //视频界面
 - (IBAction)RTVAction:(id)sender {
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
-    UIStoryboard *agdSB = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
-    AGDChatViewController *AGDVC = [agdSB instantiateViewControllerWithIdentifier:@"AGDChatViewController"];
-    [self.navigationController pushViewController:AGDVC animated:YES];
-    
+    if ([self isValidInput]) {
+//        [self performSegueWithIdentifier:AGDSegueID sender:sender];
+        UIStoryboard *agdSB = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
+        AGDChatViewController *AGDVC = [agdSB instantiateViewControllerWithIdentifier:@"AGDChatViewController"];
+        [self.navigationController pushViewController:AGDVC animated:YES];
+    }
 }
+- (BOOL)isValidInput{
+    [self.view endEditing:YES];
+    if (self.vendorKey.length && self.roomNum.length) {
+        
+        NSLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
+        return YES;
+    }else{
+        NSLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
+        
+    return NO;
+    }
+}
+
 @end

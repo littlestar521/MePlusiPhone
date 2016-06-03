@@ -260,7 +260,6 @@
                     <connections>
                         <outlet property="keyTextField" destination="aLG-KF-ZgU" id="rdv-qy-ex8"/>
                         <outlet property="roomNumberTextField" destination="qJ1-yx-GeV" id="3my-Ul-CUx"/>
-                        <segue destination="cIQ-1b-6mt" kind="push" identifier="Chat" id="zGr-e0-JRr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
