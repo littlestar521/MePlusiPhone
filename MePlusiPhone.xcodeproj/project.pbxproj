@@ -37,6 +37,7 @@
 		1BAF3A161CFBE6AE00ACE490 /* RobotOnLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */; };
 		1BF384EA1CFE7894000F2179 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E71CFDA53C00610857 /* AgoraRtcEngineKit.framework */; };
 		1BF384EB1CFE78AF000F2179 /* libCrasheye.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E91CFDA54900610857 /* libCrasheye.a */; };
+		90CDAC2B2534551D690CB1EC /* libPods-MePlusiPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C81E34B9172D65E3B756970 /* libPods-MePlusiPhone.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,9 @@
 		1B7D73A41CFD3F58005856A4 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		1BAF3A141CFBE6AE00ACE490 /* RobotOnLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotOnLineViewController.h; sourceTree = "<group>"; };
 		1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotOnLineViewController.m; sourceTree = "<group>"; };
+		1C81E34B9172D65E3B756970 /* libPods-MePlusiPhone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MePlusiPhone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54917B8BC958C190AF945225 /* Pods-MePlusiPhone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MePlusiPhone.release.xcconfig"; path = "Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone.release.xcconfig"; sourceTree = "<group>"; };
+		8A4C720AD6BC3CA047400848 /* Pods-MePlusiPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MePlusiPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 				1B7D73951CFD3796005856A4 /* CoreMedia.framework in Frameworks */,
 				1B7D73931CFD378B005856A4 /* AVFoundation.framework in Frameworks */,
 				1B7D73911CFD3782005856A4 /* AudioToolbox.framework in Frameworks */,
+				90CDAC2B2534551D690CB1EC /* libPods-MePlusiPhone.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +155,8 @@
 				18F2169F1CF5999E00B66709 /* MePlusiPhoneTests */,
 				18F216AA1CF5999E00B66709 /* MePlusiPhoneUITests */,
 				18F216841CF5999E00B66709 /* Products */,
+				D73437DD2E9B62E12F54FAC9 /* Pods */,
+				4554C0D6E8FE23300E81C6B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -319,6 +326,23 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		4554C0D6E8FE23300E81C6B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C81E34B9172D65E3B756970 /* libPods-MePlusiPhone.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D73437DD2E9B62E12F54FAC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A4C720AD6BC3CA047400848 /* Pods-MePlusiPhone.debug.xcconfig */,
+				54917B8BC958C190AF945225 /* Pods-MePlusiPhone.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -326,9 +350,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18F216B01CF5999E00B66709 /* Build configuration list for PBXNativeTarget "MePlusiPhone" */;
 			buildPhases = (
+				7006804A8DE5B88B09CD9BE1 /* [CP] Check Pods Manifest.lock */,
 				18F2167F1CF5999E00B66709 /* Sources */,
 				18F216801CF5999E00B66709 /* Frameworks */,
 				18F216811CF5999E00B66709 /* Resources */,
+				5DEF33896F4CB7F7C0FB4B73 /* [CP] Embed Pods Frameworks */,
+				B04EAFF0577689BFBBF9B814 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -450,6 +477,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DEF33896F4CB7F7C0FB4B73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7006804A8DE5B88B09CD9BE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B04EAFF0577689BFBBF9B814 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		18F2167F1CF5999E00B66709 /* Sources */ = {
@@ -623,6 +698,7 @@
 		};
 		18F216B11CF5999E00B66709 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A4C720AD6BC3CA047400848 /* Pods-MePlusiPhone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -652,6 +728,7 @@
 		};
 		18F216B21CF5999E00B66709 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54917B8BC958C190AF945225 /* Pods-MePlusiPhone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
