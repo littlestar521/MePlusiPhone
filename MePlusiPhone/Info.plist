@@ -9,9 +9,9 @@
 			<key>pubsub.pubnub.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<string>true</string>
+				<true/>
 				<key>NSIncludesSubdomains</key>
-				<string>true</string>
+				<true/>
 			</dict>
 		</dict>
 	</dict>
