@@ -33,8 +33,8 @@
 		1B7D73991CFD37AF005856A4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73981CFD37AF005856A4 /* CoreMotion.framework */; };
 		1B7D739B1CFD37B8005856A4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */; };
 		1B7D739D1CFD37CD005856A4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D739C1CFD37CD005856A4 /* libc++.tbd */; };
-		1B7D73A51CFD3F58005856A4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D73A41CFD3F58005856A4 /* VideoViewController.m */; };
 		1BAF3A161CFBE6AE00ACE490 /* RobotOnLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */; };
+		1BAFEF6A1D04871400C48753 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAFEF691D04871400C48753 /* ScanViewController.m */; };
 		1BF384EA1CFE7894000F2179 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E71CFDA53C00610857 /* AgoraRtcEngineKit.framework */; };
 		1BF384EB1CFE78AF000F2179 /* libCrasheye.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E91CFDA54900610857 /* libCrasheye.a */; };
 		90CDAC2B2534551D690CB1EC /* libPods-MePlusiPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C81E34B9172D65E3B756970 /* libPods-MePlusiPhone.a */; };
@@ -104,10 +104,10 @@
 		1B7D73981CFD37AF005856A4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1B7D739C1CFD37CD005856A4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		1B7D73A31CFD3F58005856A4 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
-		1B7D73A41CFD3F58005856A4 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		1BAF3A141CFBE6AE00ACE490 /* RobotOnLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotOnLineViewController.h; sourceTree = "<group>"; };
 		1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotOnLineViewController.m; sourceTree = "<group>"; };
+		1BAFEF681D04871400C48753 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		1BAFEF691D04871400C48753 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		1C81E34B9172D65E3B756970 /* libPods-MePlusiPhone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MePlusiPhone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54917B8BC958C190AF945225 /* Pods-MePlusiPhone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MePlusiPhone.release.xcconfig"; path = "Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone.release.xcconfig"; sourceTree = "<group>"; };
 		8A4C720AD6BC3CA047400848 /* Pods-MePlusiPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MePlusiPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -259,8 +259,8 @@
 			children = (
 				1BAF3A141CFBE6AE00ACE490 /* RobotOnLineViewController.h */,
 				1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */,
-				1B7D73A31CFD3F58005856A4 /* VideoViewController.h */,
-				1B7D73A41CFD3F58005856A4 /* VideoViewController.m */,
+				1BAFEF681D04871400C48753 /* ScanViewController.h */,
+				1BAFEF691D04871400C48753 /* ScanViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -536,9 +536,9 @@
 				1BAF3A161CFBE6AE00ACE490 /* RobotOnLineViewController.m in Sources */,
 				18F5957E1CF691B300055D84 /* UIViewController+Common.m in Sources */,
 				1B4253C61CFD880800610857 /* AGDChatViewController.m in Sources */,
+				1BAFEF6A1D04871400C48753 /* ScanViewController.m in Sources */,
 				1B4253CC1CFD880800610857 /* AGDLoginViewController.m in Sources */,
 				1B4253C51CFD880800610857 /* AGDChatCell.m in Sources */,
-				1B7D73A51CFD3F58005856A4 /* VideoViewController.m in Sources */,
 				18F2168B1CF5999E00B66709 /* AppDelegate.m in Sources */,
 				1B4253CE1CFD880800610857 /* AGDSplashViewController.m in Sources */,
 				18F216881CF5999E00B66709 /* main.m in Sources */,

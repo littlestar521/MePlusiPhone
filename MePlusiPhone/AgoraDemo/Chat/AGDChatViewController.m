@@ -52,6 +52,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //隐藏导航栏
+    self.navigationController.navigationBarHidden = YES;
     
     //
     self.uids = [NSMutableArray array];
@@ -61,7 +63,7 @@
     self.vendorKey = [self.dictionary objectForKey:AGDKeyVendorKey];
     self.type = self.chatType;
     
-    self.title = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"room", nil), self.channel];
+//    self.title = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"room", nil), self.channel];
 //    [self selectSpeakerButtons:YES];
     [self initAgoraKit];
     NSLog(@"self: %@", self);

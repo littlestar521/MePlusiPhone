@@ -18,6 +18,8 @@ static NSString *const AGDSegueID  = @"Chat";
 @property(nonatomic,strong)UIButton *actionBtn;
 @property(nonatomic,strong)NSString *vendorKey;
 @property(nonatomic,strong)NSString *roomNum;
+@property(nonatomic,strong)UIView *lightView;
+@property(nonatomic,strong)UILabel *tipLabel;
 
 - (IBAction)RTVAction:(id)sender;
 @end
@@ -31,12 +33,10 @@ static NSString *const AGDSegueID  = @"Chat";
 
     [self voiceAction];
     
-//    [self anyAction];
     //注册通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAction:) name:@"notification" object:nil];
-    self.roomNum = @"e3347dee5a6c11f5";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAction:) name:@"message" object:nil];
+//    self.roomNum = @"e3347dee5a6c11f5";
     
-    //
 //    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 //    self.vendorKey = [userDefaults objectForKey:AGDKeyVendorKey];
 //    if (self.vendorKey) {
@@ -47,6 +47,20 @@ static NSString *const AGDSegueID  = @"Chat";
 
     
 }
+
+#pragma  mark --------------- 接收和移除通知
+//接收通知
+- (void)changeAction:(NSNotification *)notification{
+    self.roomNum = notification.userInfo[@"input"];
+}
+//移除通知
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden = NO;
+}
+
 #pragma mark  ------------- appKey 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if (![segue.identifier isEqualToString:AGDSegueID]) {
@@ -58,51 +72,91 @@ static NSString *const AGDSegueID  = @"Chat";
     if (button.tag == 1) {
         chatVC.chatType = AGDChatTypeDefault;
     }
-    
-}
-
-
-
-- (void)anyAction{
-    self.actionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.actionBtn.frame = CGRectMake(kScreenWidth*3/4-60, kScreenHeight-80-60, 60, 60);
-    [self.actionBtn setBackgroundColor: [UIColor purpleColor]];
-    [self.actionBtn setTitle:@"确定" forState:UIControlStateNormal];
-    [self.actionBtn addTarget:self action:@selector(resultAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.actionBtn];
-
-
 }
 - (void)resultAction:(UIButton *)btn{
-}
-- (void)changeAction:(NSNotification *)notification{
-    
-    
-}
-#pragma  mark --------------- 移除通知
-//移除通知
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
 }
 #pragma mark ---------------- voice
 - (void)voiceAction{
     
-    UIButton *voice = [UIButton buttonWithType:UIButtonTypeCustom];
-    voice.frame = CGRectMake(kScreenWidth*3/4, kScreenHeight-80, 60, 60);
-    [voice setBackgroundColor: [UIColor redColor]];
+    UIButton *voiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    voice.frame = CGRectMake(kScreenWidth*3/4, kScreenHeight-80, 60, 60);
+    voiceBtn.frame = CGRectMake(kScreenWidth*3/4, 0, 50, 50);
+    [voiceBtn setBackgroundColor: [UIColor redColor]];
 //    [voice setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [voice setTitle:@"voice" forState:UIControlStateNormal];
-    [voice addTarget:self action:@selector(robotOnLineAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:voice];
+    voiceBtn.tag = 1;
+    [voiceBtn setTitle:@"voice" forState:UIControlStateNormal];
+    [voiceBtn addTarget:self action:@selector(robotOnLineAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:voice];
+    self.lightView = [[UIView alloc]initWithFrame:CGRectMake(0, kScreenHeight-70, kScreenWidth, 120)];
+//    self.lightView.backgroundColor = [UIColor whiteColor];
+    
+    self.tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, voiceBtn.frame.size.height+20, kScreenWidth, 50)];
+    self.tipLabel.backgroundColor = [UIColor grayColor];
+    self.tipLabel.textColor = [UIColor whiteColor];
+    
+    [self.lightView addSubview:self.tipLabel];
+    
+    UIButton *makesureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    makesureBtn.frame = CGRectMake(kScreenWidth*3/4-20, voiceBtn.frame.size.height+30, 90, 30);
+    [makesureBtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [makesureBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [makesureBtn addTarget:self action:@selector(robotOnLineAction:) forControlEvents:UIControlEventTouchUpInside];
+    makesureBtn.tag = 2;
+    [self.lightView addSubview:makesureBtn];
+    [self.lightView addSubview:voiceBtn];
+    [self.view addSubview:self.lightView];
+    
+    
+    
     
 }
 //
 - (void)robotOnLineAction:(UIButton *)btn{
-    
-    RobotOnLineViewController *robotVC = [[RobotOnLineViewController alloc]init];
-    [self.navigationController pushViewController:robotVC animated:YES];
-    
+    switch (btn.tag) {
+        case 1:
+        {
+            if (self.roomNum == nil) {
+                self.tipLabel.text = @"   绑定多我机器人吗？";
+            }else{
+                self.tipLabel.text = @"   唤醒多我机器人吗？";
+            }
+                [UIView animateWithDuration:0.1 animations:^{
+                self.lightView.frame = CGRectMake(0, kScreenHeight-120, kScreenWidth, 120);
+                
+                 }];
+        }
+            break;
+        case 2:
+        {
+            [UIView animateWithDuration:0.1 animations:^{
+                self.lightView.frame = CGRectMake(0, kScreenHeight-70, kScreenWidth, 120);
+                
+            }];
+            if (self.vendorKey.length && self.roomNum.length) {
+                
+                NSLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
+//                return YES;
+            }else{
+                NSLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
+                
+//                return NO;
+            }
+
+            if (self.roomNum == nil) {
+                RobotOnLineViewController *robotVC = [[RobotOnLineViewController alloc]init];
+                [self.navigationController pushViewController:robotVC animated:YES];
+            }else{
+
+                UIStoryboard *agdSB = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
+                AGDChatViewController *AGDVC = [agdSB instantiateViewControllerWithIdentifier:@"AGDChatViewController"];
+                [self.navigationController pushViewController:AGDVC animated:YES];
+            }
+        }
+            break;
+
+        default:
+            break;
+    }
     
 }
 - (void)didReceiveMemoryWarning {
@@ -110,25 +164,23 @@ static NSString *const AGDSegueID  = @"Chat";
     // Dispose of any resources that can be recreated.
 }
 //视频界面
-- (IBAction)RTVAction:(id)sender {
-    if ([self isValidInput]) {
-//        [self performSegueWithIdentifier:AGDSegueID sender:sender];
-        UIStoryboard *agdSB = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
-        AGDChatViewController *AGDVC = [agdSB instantiateViewControllerWithIdentifier:@"AGDChatViewController"];
-        [self.navigationController pushViewController:AGDVC animated:YES];
-    }
-}
-- (BOOL)isValidInput{
-    [self.view endEditing:YES];
-    if (self.vendorKey.length && self.roomNum.length) {
-        
-        NSLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
-        return YES;
-    }else{
-        NSLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
-        
-    return NO;
-    }
-}
+//- (IBAction)RTVAction:(id)sender {
+//    if ([self isValidInput]) {
+////        [self performSegueWithIdentifier:AGDSegueID sender:sender];
+//        
+//    }
+//}
+//- (BOOL)isValidInput{
+//    [self.view endEditing:YES];
+//    if (self.vendorKey.length && self.roomNum.length) {
+//        
+//        NSLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
+//        return YES;
+//    }else{
+//        NSLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
+//        
+//    return NO;
+//    }
+//}
 
 @end

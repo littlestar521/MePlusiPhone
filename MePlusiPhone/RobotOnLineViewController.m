@@ -9,6 +9,7 @@
 #import "RobotOnLineViewController.h"
 #import "MePlus.pch"
 #import "ViewController.h"
+#import "ScanViewController.h"
 
 
 @interface RobotOnLineViewController ()
@@ -68,6 +69,7 @@
 - (void)bindingRobotAction{
     //发送通知
     [[NSNotificationCenter defaultCenter]postNotificationName:@"message" object:nil userInfo:@{@"input": self.robotNum.text}];
+    
     UIStoryboard *viewSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *VC = [viewSB instantiateViewControllerWithIdentifier:@"ViewController"];
     [self.navigationController pushViewController:VC animated:YES];
@@ -77,9 +79,8 @@
 - (void)scanRobotAction{
     //发送通知
     [[NSNotificationCenter defaultCenter]postNotificationName:@"message" object:nil userInfo:@{@"input": self.robotNum.text}];
-    UIStoryboard *viewSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController *VC = [viewSB instantiateViewControllerWithIdentifier:@"ViewController"];
-    [self.navigationController pushViewController:VC animated:YES];
+    ScanViewController *scanVC = [[ScanViewController alloc]init];
+    [self.navigationController pushViewController:scanVC animated:YES];
     
 }
 

@@ -16,18 +16,6 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0WT-OQ-n1U">
-                                <rect key="frame" x="196" y="622" width="49" height="30"/>
-                                <color key="backgroundColor" red="0.52606878045463246" green="0.0754820355717013" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="video">
-                                    <color key="titleColor" red="0.97208261850861877" green="0.89858222403233989" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="RTVAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b1P-qV-d2i"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="0Ay-kR-ynM"/>
