@@ -16,6 +16,7 @@
 #define kAppKey @"522add3faf8546f4a5536584166bf1e9"
 #define kTextKey @"0f185d7886984e18aab1799627a1aee9"
 
-
+#define kPUBKey @"pub-c-21bf7caa-f4f6-434c-9f24-a56b4f297ecd"
+#define kSUBKey @"sub-c-dbbf4102-e02c-11e5-86ad-0619f8945a4f"
 
 #endif /* MePlusTools_h */

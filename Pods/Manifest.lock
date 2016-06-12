@@ -14,18 +14,34 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
+  - PubNub (4.3.3):
+    - CocoaLumberjack (= 2.3.0)
+    - PubNub/Core (= 4.3.3)
+  - PubNub/Core (4.3.3):
+    - CocoaLumberjack (= 2.3.0)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
 
 DEPENDENCIES:
   - AFNetworking
+  - PubNub
   - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  PubNub: 51acd937c947d931a75d2caef654fd12f7573e09
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-PODFILE CHECKSUM: 601009ef35156d544aedf1a9d3c20c4635c657ed
+PODFILE CHECKSUM: 743bf2e50b0be7711cd300f7b576638f796a1ea3
 
 COCOAPODS: 1.0.1

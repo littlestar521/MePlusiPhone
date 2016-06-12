@@ -59,7 +59,7 @@
             userName.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:userName];
             UILabel *number = [[UILabel alloc]initWithFrame:CGRectMake(20+[widthArray1[i] integerValue], messageView.frame.size.height*2/3+24*i, 120, 24)];
-            number.backgroundColor = [UIColor yellowColor];
+//            number.backgroundColor = [UIColor yellowColor];
             number.tag = i+100;
             number.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:number];
@@ -69,7 +69,7 @@
             userName.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:userName];
             UILabel *number = [[UILabel alloc]initWithFrame:CGRectMake(20+[widthArray2[i] integerValue], messageView.frame.size.height*2/3+24*i, 180, 24)];
-            number.backgroundColor = [UIColor yellowColor];
+//            number.backgroundColor = [UIColor yellowColor];
             number.tag = i+100;
             number.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:number];

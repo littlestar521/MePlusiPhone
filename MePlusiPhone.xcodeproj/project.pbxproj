@@ -37,7 +37,7 @@
 		1BAFEF6A1D04871400C48753 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAFEF691D04871400C48753 /* ScanViewController.m */; };
 		1BF384EA1CFE7894000F2179 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E71CFDA53C00610857 /* AgoraRtcEngineKit.framework */; };
 		1BF384EB1CFE78AF000F2179 /* libCrasheye.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E91CFDA54900610857 /* libCrasheye.a */; };
-		90CDAC2B2534551D690CB1EC /* libPods-MePlusiPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C81E34B9172D65E3B756970 /* libPods-MePlusiPhone.a */; };
+		E67ABAA8885DC7E6AF044257 /* Pods_MePlusiPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA600BD6338EF61340D18CB4 /* Pods_MePlusiPhone.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,9 +108,9 @@
 		1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotOnLineViewController.m; sourceTree = "<group>"; };
 		1BAFEF681D04871400C48753 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		1BAFEF691D04871400C48753 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
-		1C81E34B9172D65E3B756970 /* libPods-MePlusiPhone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MePlusiPhone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54917B8BC958C190AF945225 /* Pods-MePlusiPhone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MePlusiPhone.release.xcconfig"; path = "Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone.release.xcconfig"; sourceTree = "<group>"; };
 		8A4C720AD6BC3CA047400848 /* Pods-MePlusiPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MePlusiPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone.debug.xcconfig"; sourceTree = "<group>"; };
+		EA600BD6338EF61340D18CB4 /* Pods_MePlusiPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MePlusiPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 				1B7D73951CFD3796005856A4 /* CoreMedia.framework in Frameworks */,
 				1B7D73931CFD378B005856A4 /* AVFoundation.framework in Frameworks */,
 				1B7D73911CFD3782005856A4 /* AudioToolbox.framework in Frameworks */,
-				90CDAC2B2534551D690CB1EC /* libPods-MePlusiPhone.a in Frameworks */,
+				E67ABAA8885DC7E6AF044257 /* Pods_MePlusiPhone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +329,7 @@
 		4554C0D6E8FE23300E81C6B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1C81E34B9172D65E3B756970 /* libPods-MePlusiPhone.a */,
+				EA600BD6338EF61340D18CB4 /* Pods_MePlusiPhone.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -702,7 +702,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 2891529590@qq.com (G7J8NS9T35)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../libs/",
