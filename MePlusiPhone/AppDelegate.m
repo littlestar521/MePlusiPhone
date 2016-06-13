@@ -44,13 +44,13 @@
     
     
     
-//    PNConfiguration *configuration = [PNConfiguration configurationWithPublishKey:kPUBKey subscribeKey:kSUBKey];
-//    configuration.uuid = @"";
-//    configuration.TLSEnabled = YES;
-//    self.client = [PubNub clientWithConfiguration:configuration];
-//    [self.client addListener:self];
-//    [self.client subscribeToChannels:@[@"my_channel"]  withPresence:YES];
-//    
+    PNConfiguration *configuration = [PNConfiguration configurationWithPublishKey:kPUBKey subscribeKey:kSUBKey];
+    configuration.uuid = @"机器人编码";
+    configuration.TLSEnabled = YES;
+    self.client = [PubNub clientWithConfiguration:configuration];
+    [self.client addListener:self];
+    [self.client subscribeToChannels:@[@"my_channel"]  withPresence:YES];
+//
 //    //基本用法basic usage
 //    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
 //    CFStringRef cfUUID = CFUUIDCreateString(kCFAllocatorDefault, uuid);
