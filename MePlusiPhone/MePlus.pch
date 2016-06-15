@@ -8,9 +8,18 @@
 
 #ifndef MePlus_pch
 #define MePlus_pch
+
 #import "MePlusTools.h"
 #import "UIViewController+Common.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudCrashReporting.h>
 
+
+#ifdef DEBUG
+#	define MJJLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#	define MJJLog(...)
+#endif
 
 
 // Include any system framework and library headers here that should be included in all compilation units.

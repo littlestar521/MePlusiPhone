@@ -19,10 +19,227 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="0Ay-kR-ynM"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383.5" y="975.5"/>
+            <point key="canvasLocation" x="1179.5" y="830.5"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="w5B-ew-f5f">
+            <objects>
+                <viewController id="pMI-4R-xaU" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6K2-uU-a3w"/>
+                        <viewControllerLayoutGuide type="bottom" id="0jL-gO-Y6Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AfD-a6-HSl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Wc8-Ai-TIy">
+                                <rect key="frame" x="0.0" y="48" width="375" height="619"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf1-Gt-bHK">
+                                <rect key="frame" x="40" y="502" width="303" height="1"/>
+                                <color key="backgroundColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOJ-zc-7Kr">
+                                <rect key="frame" x="40" y="439" width="303" height="1"/>
+                                <color key="backgroundColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_password_normal" translatesAutoresizingMaskIntoConstraints="NO" id="Ctk-pg-ijP">
+                                <rect key="frame" x="40" y="466" width="36" height="36"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="8Ee-lT-cnu">
+                                <rect key="frame" x="107" y="159" width="160" height="91"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yhr-dR-Xk7">
+                                <rect key="frame" x="94" y="400" width="245" height="36"/>
+                                <color key="textColor" red="0.0" green="0.72941176470588232" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T0H-mE-tZf">
+                                <rect key="frame" x="94" y="466" width="245" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="control_video_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Tre-GF-Obe">
+                                <rect key="frame" x="40" y="439" width="295" height="0.0"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="control_video_bg" translatesAutoresizingMaskIntoConstraints="NO" id="OFq-gK-MGH">
+                                <rect key="frame" x="40" y="504" width="295" height="0.0"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_phone_hilight" translatesAutoresizingMaskIntoConstraints="NO" id="fwo-dg-wPl">
+                                <rect key="frame" x="40" y="400" width="36" height="36"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lN-Ia-DMp">
+                                <rect key="frame" x="254" y="510" width="85" height="23"/>
+                                <state key="normal" title="忘记密码？">
+                                    <color key="titleColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgetPasswordBtn:" destination="pMI-4R-xaU" eventType="touchUpInside" id="iIH-Go-QEl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNm-u8-Sry">
+                                <rect key="frame" x="40" y="541" width="303" height="48"/>
+                                <state key="normal" title="Button" image="button_sign_in_normal"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="pMI-4R-xaU" eventType="touchUpInside" id="Pph-hr-Rhf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-kA-WJ3">
+                                <rect key="frame" x="40" y="597" width="303" height="34"/>
+                                <state key="normal" title="注册">
+                                    <color key="titleColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerAction:" destination="pMI-4R-xaU" eventType="touchUpInside" id="kd9-N2-nkl"/>
+                                    <segue destination="xdw-hU-6qA" kind="push" id="kbD-YH-QKr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="R6m-gx-Ttl"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="loginBtn" destination="vNm-u8-Sry" id="IYz-zk-59c"/>
+                        <outlet property="numberTF" destination="yhr-dR-Xk7" id="ma2-oh-8LO"/>
+                        <outlet property="passwordTF" destination="T0H-mE-tZf" id="znh-nO-hAn"/>
+                        <outlet property="registerBtn" destination="bPT-kA-WJ3" id="tu4-Ks-AxH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAL-VW-Z18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="357.5" y="803.5"/>
+        </scene>
+        <!--Register View Controller-->
+        <scene sceneID="fHS-ci-tIF">
+            <objects>
+                <viewController id="xdw-hU-6qA" customClass="RegisterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="khK-yF-EU3"/>
+                        <viewControllerLayoutGuide type="bottom" id="yFC-9G-0BG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hfP-RH-4gM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pom-2A-BQS">
+                                <rect key="frame" x="0.0" y="49" width="375" height="625"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="7dU-Ek-XTJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_phone_hilight" translatesAutoresizingMaskIntoConstraints="NO" id="9F5-el-fSf">
+                                        <rect key="frame" x="40" y="213" width="36" height="36"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_password_normal" translatesAutoresizingMaskIntoConstraints="NO" id="CFe-BH-V5Q">
+                                        <rect key="frame" x="40" y="338" width="36" height="36"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_password_normal" translatesAutoresizingMaskIntoConstraints="NO" id="011-2f-rxp">
+                                        <rect key="frame" x="40" y="400" width="36" height="36"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U51-gZ-vDb">
+                                        <rect key="frame" x="100" y="213" width="235" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcy-15-6eH">
+                                        <rect key="frame" x="100" y="276" width="235" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJD-kw-9X9">
+                                        <rect key="frame" x="100" y="338" width="235" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfs-yT-uWZ">
+                                        <rect key="frame" x="36" y="248" width="303" height="1"/>
+                                        <color key="backgroundColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LP-VL-Ftz">
+                                        <rect key="frame" x="36" y="311" width="303" height="1"/>
+                                        <color key="backgroundColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm0-7m-KeF">
+                                        <rect key="frame" x="36" y="373" width="303" height="1"/>
+                                        <color key="backgroundColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nA-bq-XU1">
+                                        <rect key="frame" x="36" y="435" width="303" height="1"/>
+                                        <color key="backgroundColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="确认密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="quG-aX-fvq">
+                                        <rect key="frame" x="100" y="400" width="235" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sign_in_logo" translatesAutoresizingMaskIntoConstraints="NO" id="FIj-ie-yAv">
+                                        <rect key="frame" x="113" y="61" width="149" height="61"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wat-nR-BFw">
+                                        <rect key="frame" x="40" y="483" width="303" height="50"/>
+                                        <state key="normal" title="Button" image="button_sign_up_normal"/>
+                                        <connections>
+                                            <action selector="registerACtion:" destination="xdw-hU-6qA" eventType="touchUpInside" id="laF-eU-Owz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSl-bu-z9n">
+                                        <rect key="frame" x="36" y="548" width="307" height="34"/>
+                                        <state key="normal" title="登录">
+                                            <color key="titleColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginAction:" destination="xdw-hU-6qA" eventType="touchUpInside" id="ZrO-37-urF"/>
+                                            <segue destination="pMI-4R-xaU" kind="push" id="SE1-Dq-Lvw"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_Email_sign_up_normal" translatesAutoresizingMaskIntoConstraints="NO" id="f46-zb-Ukw">
+                                        <rect key="frame" x="40" y="276" width="36" height="36"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sso-9q-k28"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="emailTF" destination="vcy-15-6eH" id="TTg-W8-mt7"/>
+                        <outlet property="loginBtn" destination="eSl-bu-z9n" id="KjR-BO-b9D"/>
+                        <outlet property="makesureTF" destination="quG-aX-fvq" id="84f-Ch-bK4"/>
+                        <outlet property="numberTF" destination="U51-gZ-vDb" id="mHI-A2-ZPg"/>
+                        <outlet property="password" destination="AJD-kw-9X9" id="YEj-Hj-UsO"/>
+                        <outlet property="registerBtn" destination="Wat-nR-BFw" id="Y4F-CV-MUH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ybb-td-feG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782.5" y="803.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m6U-tN-IPZ">
@@ -37,12 +254,26 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ToD-jv-pop"/>
+                        <segue destination="pMI-4R-xaU" kind="relationship" relationship="rootViewController" id="Pzy-3g-6Bd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fY-1R-hzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="1006"/>
+            <point key="canvasLocation" x="-68.5" y="803.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="1080" height="1920"/>
+        <image name="Sign_in_logo" width="414" height="162"/>
+        <image name="button_sign_in_normal" width="894" height="164"/>
+        <image name="button_sign_up_normal" width="894" height="164"/>
+        <image name="control_video_bg" width="836" height="48"/>
+        <image name="icon_Email_sign_up_normal" width="80" height="80"/>
+        <image name="icon_password_normal" width="80" height="80"/>
+        <image name="icon_phone_hilight" width="80" height="80"/>
+        <image name="logo" width="484" height="246"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SE1-Dq-Lvw"/>
+    </inferredMetricsTieBreakers>
 </document>

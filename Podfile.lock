@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AVOSCloud (3.3.1)
+  - AVOSCloudCrashReporting (3.3.1):
+    - AVOSCloud
   - CocoaLumberjack (2.3.0):
     - CocoaLumberjack/Default (= 2.3.0)
     - CocoaLumberjack/Extensions (= 2.3.0)
@@ -33,15 +36,19 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AVOSCloud
+  - AVOSCloudCrashReporting
   - PubNub
   - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AVOSCloud: ce999e21da976f78c4eda53243699b634891d42d
+  AVOSCloudCrashReporting: 80e30991bfeee83dccbc2ffe0b3e6fd4dfbdb7af
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   PubNub: 51acd937c947d931a75d2caef654fd12f7573e09
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-PODFILE CHECKSUM: 743bf2e50b0be7711cd300f7b576638f796a1ea3
+PODFILE CHECKSUM: fb9b257c524fd419057b24b5cc3cb9cf4ca80700
 
 COCOAPODS: 1.0.1

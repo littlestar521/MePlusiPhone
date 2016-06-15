@@ -21,6 +21,7 @@ static NSString *const AGDSegueID  = @"Chat";
 @property(nonatomic,strong)UIView *lightView;
 @property(nonatomic,strong)UILabel *tipLabel;
 
+
 - (IBAction)RTVAction:(id)sender;
 @end
 
@@ -33,7 +34,7 @@ static NSString *const AGDSegueID  = @"Chat";
 
     [self voiceAction];
     
-    //注册通知
+        //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAction:) name:@"message" object:nil];
 //    self.roomNum = @"e3347dee5a6c11f5";
     
@@ -42,7 +43,7 @@ static NSString *const AGDSegueID  = @"Chat";
 //    if (self.vendorKey) {
         self.vendorKey = kAppKey;
 //    }else{
-//        NSLog(@"1234空值");
+//        MJJLog(@"1234空值");
 //    }
 
     
@@ -122,7 +123,6 @@ static NSString *const AGDSegueID  = @"Chat";
             }
                 [UIView animateWithDuration:0.1 animations:^{
                 self.lightView.frame = CGRectMake(0, kScreenHeight-120, kScreenWidth, 120);
-                
                  }];
         }
             break;
@@ -133,12 +133,10 @@ static NSString *const AGDSegueID  = @"Chat";
                 
             }];
             if (self.vendorKey.length && self.roomNum.length) {
-                
-                NSLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
+                MJJLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
 //                return YES;
             }else{
-                NSLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
-                
+                MJJLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
 //                return NO;
             }
 
@@ -157,7 +155,6 @@ static NSString *const AGDSegueID  = @"Chat";
         default:
             break;
     }
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -174,10 +171,10 @@ static NSString *const AGDSegueID  = @"Chat";
 //    [self.view endEditing:YES];
 //    if (self.vendorKey.length && self.roomNum.length) {
 //        
-//        NSLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
+//        MJJLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
 //        return YES;
 //    }else{
-//        NSLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
+//        MJJLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
 //        
 //    return NO;
 //    }

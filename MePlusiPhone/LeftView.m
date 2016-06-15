@@ -14,8 +14,8 @@
 @interface LeftView ()
 @property (nonatomic,strong)UIView *setView;
 @property (nonatomic,strong)UIView *backView;
-@property(nonatomic, strong)UILabel *number;
-@property(nonatomic,strong)NSString *robotNum;
+@property (nonatomic, strong)UILabel *number;
+@property (nonatomic,strong)NSString *robotNum;
 
 @end
 @implementation LeftView
@@ -32,6 +32,8 @@
 
     //注册通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeLabelText:) name:@"message" object:nil];
+    //注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLabelText:) name:@"login" object:nil];
     
     
     UIWindow *window = [[UIApplication sharedApplication].delegate  window];
@@ -53,16 +55,17 @@
     NSArray *widthArray1 = @[@"60",@"50",@"120"];
     NSArray *widthArray2 = @[@"60",@"50",@"60"];
     for (int i = 0; i < 3; i++) {
-        if (self.robotNum != nil) {
+        if (self.robotNum == nil) {
             UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(20, messageView.frame.size.height*2/3+24*i, [widthArray1[i] integerValue], 24)];
             userName.text = userArray1[i];
             userName.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:userName];
-            UILabel *number = [[UILabel alloc]initWithFrame:CGRectMake(20+[widthArray1[i] integerValue], messageView.frame.size.height*2/3+24*i, 120, 24)];
+            self.number = [[UILabel alloc]initWithFrame:CGRectMake(20+[widthArray1[i] integerValue], messageView.frame.size.height*2/3+24*i, 120, 24)];
+            
 //            number.backgroundColor = [UIColor yellowColor];
-            number.tag = i+100;
-            number.font = [UIFont systemFontOfSize:14];
-            [messageView addSubview:number];
+            self.number.tag = i+100;
+            self.number.font = [UIFont systemFontOfSize:14];
+            [messageView addSubview:self.number];
         }else{
             UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(20, messageView.frame.size.height*2/3+24*i, [widthArray2[i] integerValue], 24)];
             userName.text = userArray2[i];
@@ -123,29 +126,48 @@
 //通知传值
 - (void)changeLabelText:(NSNotification *)notification{
     self.robotNum = notification.userInfo[@"input"];
-}
-//移除通知
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-    
-}
-- (void)setSelectAction:(UIButton *)btn{
-    switch (btn.tag) {
+    switch (self.number.tag) {
         case 100:
         {
-            [self disapearAction];
+            self.number.text = notification.userInfo[@"import"];
             
         }
             break;
         case 101:
         {
-            [self disapearAction];
+            self.number.text = notification.userInfo[@"import"];
+        }
+            break;
+        case 102:
+        {
+            self.number.text = notification.userInfo[@"import"];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+//移除通知
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+- (void)setSelectAction:(UIButton *)btn{
+    [self disapearAction];
+    switch (btn.tag) {
+        case 100:
+        {
+            
+        }
+            break;
+        case 101:
+        {
             
         }
             break;
         case 102:
         {
-            [self disapearAction];
             
         }
             break;

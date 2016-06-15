@@ -24,6 +24,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## AVOSCloud
+
+Copyright 2015 LeanCloud, Inc. See https://leancloud.cn/terms.html
+
+## AVOSCloudCrashReporting
+
+Copyright 2015 LeanCloud, Inc. See https://leancloud.cn/terms.html
+
 ## CocoaLumberjack
 
 Software License Agreement (BSD License)

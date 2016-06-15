@@ -20,6 +20,7 @@
 @property(nonatomic,strong)NSTimer *timer;
 @property(nonatomic,strong)PNConfiguration *myConfig;
 
+
 #pragma mark ------ configuration
 - (void)updateClientConfiguration;
 - (void)printClientConfiguration;
@@ -32,6 +33,40 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    //LeanCloud
+    [AVOSCloud setApplicationId:kLAppID clientKey:kLAppKey];
+    //跟踪统计应用打开情况
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+//    //初始化数据表1
+//    AVObject *post = [AVObject objectWithClassName:@"TestObject"];
+//    [post setObject:@"Hello World!" forKey:@"words"];
+//    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            //保存成功
+//        }
+//    }];
+//    //初始化数据表2
+//    AVObject *robotFolder = [AVObject objectWithClassName:@"robot"];//构建对象
+//    [robotFolder setObject:@"Me+" forKey:@"name"];//设置名称
+//    [robotFolder setObject:@"+" forKey:@"num"];//设置优先级
+//    [robotFolder saveInBackground];//保存到云端
+//    
+//    //获取对象
+//    AVQuery *query = [AVQuery queryWithClassName:@""];
+//    [query getObjectInBackgroundWithId:@"" block:^(AVObject *object, NSError *error) {
+//        
+//    }];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //PubNub
     self.channel1 = @"bot";
     self.channel2 = @"mych";
     self.channelGroup1 = @"myChannelGroup";
@@ -153,7 +188,7 @@
 }
 - (void)pubNubSizeOfMessage{
     [self.client sizeOfMessage:@"Connected! I'm here!" toChannel:self.channel1 withCompletion:^(NSInteger size) {
-        NSLog(@"~~~~~Message size:%@",@(size));
+        MJJLog(@"~~~~~Message size:%@",@(size));
         
     }];
 }
@@ -178,7 +213,7 @@
                    }
                    else if (result) {
                        
-                       NSLog(@"^^^^ Loaded state %@ for channel %@", result.data.state, self->_channel1);
+                       MJJLog(@"^^^^ Loaded state %@ for channel %@", result.data.state, self->_channel1);
                    }
                    
                }];
@@ -238,7 +273,7 @@
             [self handleStatus:status];
         }
         else if (result) {
-            NSLog(@"^^^^ Loaded whereNow data: %@", result.data.channels);
+            MJJLog(@"^^^^ Loaded whereNow data: %@", result.data.channels);
         }
     }];
 }
@@ -249,9 +284,9 @@
         
         
         if (!status.isError) {
-            NSLog(@"^^^^CG Remove Some Channels request succeeded at timetoken %@.", status);
+            MJJLog(@"^^^^CG Remove Some Channels request succeeded at timetoken %@.", status);
         } else {
-            NSLog(@"^^^^CG Remove Some Channels request did not succeed. All subscribe operations will autoretry when possible.");
+            MJJLog(@"^^^^CG Remove Some Channels request did not succeed. All subscribe operations will autoretry when possible.");
             [self handleStatus:status];
         }
     }];
@@ -263,9 +298,9 @@
                           withCompletion:^(PNAcknowledgmentStatus *status) {
                               
                               if (!status.isError) {
-                                  NSLog(@"^^^^CG Remove All Channels request succeeded");
+                                  MJJLog(@"^^^^CG Remove All Channels request succeeded");
                               } else {
-                                  NSLog(@"^^^^CG Remove All Channels request did not succeed. All subscribe operations will autoretry when possible.");
+                                  MJJLog(@"^^^^CG Remove All Channels request did not succeed. All subscribe operations will autoretry when possible.");
                                   [self handleStatus:status];
                               }
                           }];
@@ -282,11 +317,11 @@
                   
                   if (!status.isError) {
                       
-                      NSLog(@"^^^^CGAdd request succeeded");
+                      MJJLog(@"^^^^CGAdd request succeeded");
                   }
                   else {
                       
-                      NSLog(@"^^^^CGAdd Subscribe request did not succeed. All subscribe operations will autoretry when possible.");
+                      MJJLog(@"^^^^CGAdd Subscribe request did not succeed. All subscribe operations will autoretry when possible.");
                       [strongSelf handleStatus:status];
                   }
               }];
@@ -301,7 +336,7 @@
                            [self handleStatus:status];
                        }
                        else if (result) {
-                           NSLog(@"^^^^ Loaded all channels %@ for group %@",
+                           MJJLog(@"^^^^ Loaded all channels %@ for group %@",
                                  result.data.channels, self->_channelGroup1);
                        }
                    }];
@@ -316,7 +351,7 @@
             [self handleStatus:status];
         }
         else if (result) {
-            NSLog(@"^^^^ Loaded hereNowForChannel data: occupancy: %@, uuids: %@", result.data.occupancy, result.data.uuids);
+            MJJLog(@"^^^^ Loaded hereNowForChannel data: occupancy: %@, uuids: %@", result.data.occupancy, result.data.uuids);
         }
     }];
     
@@ -332,7 +367,7 @@
                                 [self handleStatus:status];
                             }
                             else if (result) {
-                                NSLog(@"^^^^ Loaded hereNowForChannel data: occupancy: %@, uuids: %@", result.data.occupancy, result.data.uuids);
+                                MJJLog(@"^^^^ Loaded hereNowForChannel data: occupancy: %@, uuids: %@", result.data.occupancy, result.data.uuids);
                             }
                         }];
     
@@ -346,7 +381,7 @@
             [self handleStatus:status];
         }
         else if (result) {
-            NSLog(@"^^^^ Loaded Global hereNow data: channels: %@, total channels: %@, total occupancy: %@", result.data.channels, result.data.totalChannels, result.data.totalOccupancy);
+            MJJLog(@"^^^^ Loaded Global hereNow data: channels: %@, total channels: %@, total occupancy: %@", result.data.channels, result.data.totalChannels, result.data.totalOccupancy);
         }
     }];
     
@@ -362,7 +397,7 @@
             [self handleStatus:status];
         }
         else if (result) {
-            NSLog(@"^^^^ Loaded Global hereNow data: channels: %@, total channels: %@, total occupancy: %@", result.data.channels, result.data.totalChannels, result.data.totalOccupancy);
+            MJJLog(@"^^^^ Loaded Global hereNow data: channels: %@, total channels: %@, total occupancy: %@", result.data.channels, result.data.totalChannels, result.data.totalOccupancy);
         }
     }];
     
@@ -397,7 +432,7 @@
         else if (result) {
             // As a result, this contains the messages, start, and end timetoken in the data attribute
             
-            NSLog(@"Loaded history data: %@ with start %@ and end %@", result.data.messages, result.data.start, result.data.end);
+            MJJLog(@"Loaded history data: %@ with start %@ and end %@", result.data.messages, result.data.start, result.data.end);
         }
     }];
     
@@ -418,7 +453,7 @@
     
     [self.client timeWithCompletion:^(PNTimeResult *result, PNErrorStatus *status) {
         if (result.data) {
-            NSLog(@"Result from Time: %@", result.data.timetoken);
+            MJJLog(@"Result from Time: %@", result.data.timetoken);
         }
         else if (status) {
             [self handleStatus:status];
@@ -430,7 +465,7 @@
     [self.client publish:@"Connected! I'm here!" toChannel:_channel1
           withCompletion:^(PNPublishStatus *status) {
               if (!status.isError) {
-                  NSLog(@"Message sent at TT: %@", status.data.timetoken);
+                  MJJLog(@"Message sent at TT: %@", status.data.timetoken);
               } else {
                   [self handleStatus:status];
               }
@@ -455,7 +490,7 @@
     
     if (message) {
         
-        NSLog(@"Received message: %@ on channel %@ at %@", message.data.message,
+        MJJLog(@"Received message: %@ on channel %@ at %@", message.data.message,
               message.data.subscribedChannel, message.data.timetoken);
     }
 }
@@ -464,7 +499,7 @@
 
 - (void)client:(PubNub *)client didReceivePresenceEvent:(PNPresenceEventResult *)event {
     
-    NSLog(@"^^^^^ Did receive presence event: %@", event.data.presenceEvent);
+    MJJLog(@"^^^^^ Did receive presence event: %@", event.data.presenceEvent);
 }
 
 #pragma mark - Streaming Data didReceiveStatus Listener
@@ -501,55 +536,55 @@
 
 - (void)handleErrorStatus:(PNErrorStatus *)status {
     
-    NSLog(@"^^^^ Debug: %@", status.debugDescription);
+    MJJLog(@"^^^^ Debug: %@", status.debugDescription);
     
     if (status.category == PNAccessDeniedCategory) {
         
-        NSLog(@"^^^^ handleErrorStatus: PAM Error: for resource Will Auto Retry?: %@", status.willAutomaticallyRetry ? @"YES" : @"NO");
+        MJJLog(@"^^^^ handleErrorStatus: PAM Error: for resource Will Auto Retry?: %@", status.willAutomaticallyRetry ? @"YES" : @"NO");
         
         [self handlePAMError:status];
     }
     else if (status.category == PNDecryptionErrorCategory) {
         
-        NSLog(@"Decryption error. Be sure the data is encrypted and/or encrypted with the correct cipher key.");
-        NSLog(@"You can find the raw data returned from the server in the status.data attribute: %@", status.associatedObject);
+        MJJLog(@"Decryption error. Be sure the data is encrypted and/or encrypted with the correct cipher key.");
+        MJJLog(@"You can find the raw data returned from the server in the status.data attribute: %@", status.associatedObject);
         if (status.operation == PNSubscribeOperation) {
             
-            NSLog(@"Decryption failed for message from channel: %@\nmessage: %@",
+            MJJLog(@"Decryption failed for message from channel: %@\nmessage: %@",
                   ((PNMessageData *)status.associatedObject).subscribedChannel,
                   ((PNMessageData *)status.associatedObject).message);
         }
     }
     else if (status.category == PNMalformedFilterExpressionCategory) {
         
-        NSLog(@"Value which has been passed to -setFilterExpression: malformed.");
-        NSLog(@"Please verify specified value with declared filtering expression syntax.");
+        MJJLog(@"Value which has been passed to -setFilterExpression: malformed.");
+        MJJLog(@"Please verify specified value with declared filtering expression syntax.");
     }
     else if (status.category == PNMalformedResponseCategory) {
         
-        NSLog(@"We were expecting JSON from the server, but we got HTML, or otherwise not legal JSON.");
-        NSLog(@"This may happen when you connect to a public WiFi Hotspot that requires you to auth via your web browser first,");
-        NSLog(@"or if there is a proxy somewhere returning an HTML access denied error, or if there was an intermittent server issue.");
+        MJJLog(@"We were expecting JSON from the server, but we got HTML, or otherwise not legal JSON.");
+        MJJLog(@"This may happen when you connect to a public WiFi Hotspot that requires you to auth via your web browser first,");
+        MJJLog(@"or if there is a proxy somewhere returning an HTML access denied error, or if there was an intermittent server issue.");
     }
     
     else if (status.category == PNTimeoutCategory) {
         
-        NSLog(@"For whatever reason, the request timed out. Temporary connectivity issues, etc.");
+        MJJLog(@"For whatever reason, the request timed out. Temporary connectivity issues, etc.");
     }
     else if (status.category == PNNetworkIssuesCategory) {
         
-        NSLog(@"Request can't be processed because of network issues.");
+        MJJLog(@"Request can't be processed because of network issues.");
     }
     else {
         // Aside from checking for PAM, this is a generic catch-all if you just want to handle any error, regardless of reason
         // status.debugDescription will shed light on exactly whats going on
         
-        NSLog(@"Request failed... if this is an issue that is consistently interrupting the performance of your app,");
-        NSLog(@"email the output of debugDescription to support along with all available log info: %@", [status debugDescription]);
+        MJJLog(@"Request failed... if this is an issue that is consistently interrupting the performance of your app,");
+        MJJLog(@"email the output of debugDescription to support along with all available log info: %@", [status debugDescription]);
     }
     if (status.operation == PNHeartbeatOperation) {
         
-        NSLog(@"Heartbeat operation failed.");
+        MJJLog(@"Heartbeat operation failed.");
     }
 }
 
@@ -561,14 +596,14 @@
     status.errorData.channelGroups.firstObject;
     NSString *pamResourceType = status.errorData.channels ? @"channel" : @"channel-groups";
     
-    NSLog(@"PAM error on %@ %@", pamResourceType, pamResourceName);
+    MJJLog(@"PAM error on %@ %@", pamResourceType, pamResourceName);
     
     // If its a PAM error on subscribe, lets grab the channel name in question, and unsubscribe from it, and re-subscribe to a channel that we're authed to
     
     if (status.operation == PNSubscribeOperation) {
         
         if ([pamResourceType isEqualToString:@"channel"]) {
-            NSLog(@"^^^^ Unsubscribing from %@", pamResourceName);
+            MJJLog(@"^^^^ Unsubscribing from %@", pamResourceName);
             [self reconfigOnPAMError:status];
         }
         
@@ -579,8 +614,8 @@
         
     } else if (status.operation == PNPublishOperation) {
         
-        NSLog(@"^^^^ Error publishing with authKey: %@ to channel %@.", self.authkey, pamResourceName);
-        NSLog(@"^^^^ Setting auth to an authKey that will allow for both sub and pub");
+        MJJLog(@"^^^^ Error publishing with authKey: %@ to channel %@.", self.authkey, pamResourceName);
+        MJJLog(@"^^^^ Setting auth to an authKey that will allow for both sub and pub");
         
         [self reconfigOnPAMError:status];
     }
@@ -618,7 +653,7 @@
     // can get increased functionality from the client
     
     if (status.category == PNAcknowledgmentCategory) {
-        NSLog(@"^^^^ Non-error status: ACK");
+        MJJLog(@"^^^^ Non-error status: ACK");
         
         // For methods like Publish, Channel Group Add|Remove|List, APNS Add|Remove|List
         // when the method is executed, and completes, you can receive the 'ack' for it here.
@@ -638,7 +673,7 @@
             // PNUnexpectedDisconnect happens as part of our regular operation
             // This event happens when radio / connectivity is lost
             
-            NSLog(@"^^^^ Non-error status: Unexpected Disconnect, Channel Info: %@",
+            MJJLog(@"^^^^ Non-error status: Unexpected Disconnect, Channel Info: %@",
                   subscriberStatus.subscribedChannels);
         }
         
@@ -647,8 +682,8 @@
             // Connect event. You can do stuff like publish, and know you'll get it.
             // Or just use the connected event to confirm you are subscribed for UI / internal notifications, etc
             
-            // NSLog(@"Subscribe Connected to %@", status.data[@"channels"]);
-            NSLog(@"^^^^ Non-error status: Connected, Channel Info: %@",
+            // MJJLog(@"Subscribe Connected to %@", status.data[@"channels"]);
+            MJJLog(@"^^^^ Non-error status: Connected, Channel Info: %@",
                   subscriberStatus.subscribedChannels);
             [self pubNubPublish];
             
@@ -658,7 +693,7 @@
             // PNUnexpectedDisconnect happens as part of our regular operation
             // This event happens when radio / connectivity is lost
             
-            NSLog(@"^^^^ Non-error status: Reconnected, Channel Info: %@",
+            MJJLog(@"^^^^ Non-error status: Reconnected, Channel Info: %@",
                   subscriberStatus.subscribedChannels);
             
         }
@@ -669,12 +704,12 @@
             
             // PNDisconnect happens as part of our regular operation
             // No need to monitor for this unless requested by support
-            NSLog(@"^^^^ Non-error status: Expected Disconnect");
+            MJJLog(@"^^^^ Non-error status: Expected Disconnect");
         }
     }
     else if (status.operation == PNHeartbeatOperation) {
         
-        NSLog(@"Heartbeat operation successful.");
+        MJJLog(@"Heartbeat operation successful.");
     }
 }
 
@@ -708,25 +743,25 @@
 - (void)printClientConfiguration {
     
     // Get PubNub Options
-    NSLog(@"TLSEnabled: %@", (self.myConfig.isTLSEnabled ? @"YES" : @"NO"));
-    NSLog(@"Origin: %@", self.myConfig.origin);
-    NSLog(@"authKey: %@", self.myConfig.authKey);
-    NSLog(@"UUID: %@", self.myConfig.uuid);
+    MJJLog(@"TLSEnabled: %@", (self.myConfig.isTLSEnabled ? @"YES" : @"NO"));
+    MJJLog(@"Origin: %@", self.myConfig.origin);
+    MJJLog(@"authKey: %@", self.myConfig.authKey);
+    MJJLog(@"UUID: %@", self.myConfig.uuid);
     
     // Time Token Handling Settings
-    NSLog(@"keepTimeTokenOnChannelChange: %@",
+    MJJLog(@"keepTimeTokenOnChannelChange: %@",
           (self.myConfig.shouldKeepTimeTokenOnListChange ? @"YES" : @"NO"));
-    NSLog(@"resubscribeOnConnectionRestore: %@",
+    MJJLog(@"resubscribeOnConnectionRestore: %@",
           (self.myConfig.shouldRestoreSubscription ? @"YES" : @"NO"));
-    NSLog(@"catchUpOnSubscriptionRestore: %@",
+    MJJLog(@"catchUpOnSubscriptionRestore: %@",
           (self.myConfig.shouldTryCatchUpOnSubscriptionRestore ? @"YES" : @"NO"));
     
     // Get Presence Options
-    NSLog(@"Heartbeat value: %@", @(self.myConfig.presenceHeartbeatValue));
-    NSLog(@"Heartbeat interval: %@", @(self.myConfig.presenceHeartbeatInterval));
+    MJJLog(@"Heartbeat value: %@", @(self.myConfig.presenceHeartbeatValue));
+    MJJLog(@"Heartbeat interval: %@", @(self.myConfig.presenceHeartbeatInterval));
     
     // Get CipherKey
-    NSLog(@"Cipher key: %@", self.myConfig.cipherKey);
+    MJJLog(@"Cipher key: %@", self.myConfig.cipherKey);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
