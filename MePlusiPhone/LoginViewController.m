@@ -72,11 +72,12 @@
 
 - (IBAction)loginAction:(id)sender {
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"login" object:nil userInfo:@{@"import":self.numberTF.text}];
+    
     
     
     [AVUser logInWithUsernameInBackground:self.numberTF.text password:self.passwordTF.text block:^(AVUser *user, NSError *error) {
         if (user) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"login" object:nil userInfo:@{@"import":self.numberTF.text}];
 //            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示：" message:@"登陆成功^^*^^" preferredStyle:UIAlertControllerStyleAlert];
 //            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
 //            [alert addAction:action];

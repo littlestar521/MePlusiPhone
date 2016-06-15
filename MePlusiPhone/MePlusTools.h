@@ -18,8 +18,8 @@
 
 
 //leanCloud
-#define kLAppID @"xPrVFTMG3xB1NAyhky3gp30D-gzGzoHsz"
-#define kLAppKey @"RID6Lm2nf2njKcxwNUo55Mqa"
+#define kLAppID @"h5JzdkgqHLq5NYaddHdekG9N-gzGzoHsz"
+#define kLAppKey @"zRyt5zcF6JtQCMU2V2psJ5rc"
 
 //声网
 #define kAppKey @"522add3faf8546f4a5536584166bf1e9"

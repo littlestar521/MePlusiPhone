@@ -65,7 +65,6 @@
     
     
     
-    
     //PubNub
     self.channel1 = @"bot";
     self.channel2 = @"mych";
@@ -108,6 +107,15 @@
     
     
     return YES;
+}
+- (NSString *)uuid{
+    CFUUIDRef puuid = CFUUIDCreate(nil);
+    CFStringRef uuidString = CFUUIDCreateString(nil, puuid);
+    NSString *result = (NSString *)CFBridgingRelease(CFStringCreateCopy(NULL, uuidString));
+    CFRelease(puuid);
+    CFRelease(uuidString);
+    return result;
+    
 }
 - (void)pubNubInit{
     [PNLog enabled:YES];
