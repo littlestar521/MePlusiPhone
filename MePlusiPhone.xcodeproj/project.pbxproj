@@ -41,6 +41,9 @@
 		1B7D73991CFD37AF005856A4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73981CFD37AF005856A4 /* CoreMotion.framework */; };
 		1B7D739B1CFD37B8005856A4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */; };
 		1B7D739D1CFD37CD005856A4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D739C1CFD37CD005856A4 /* libc++.tbd */; };
+		1B8A93C41D129E5300084C1E /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A93C11D129E5300084C1E /* SSKeychain.m */; };
+		1B8A93C51D129E5300084C1E /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A93C31D129E5300084C1E /* SSKeychainQuery.m */; };
+		1B8A93C81D12AE3600084C1E /* ResetPWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A93C71D12AE3600084C1E /* ResetPWViewController.m */; };
 		1BA516FE1D100AEC0002EABA /* RecentCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA516FD1D100AEC0002EABA /* RecentCallViewController.m */; };
 		1BA517011D100B120002EABA /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA517001D100B120002EABA /* SetViewController.m */; };
 		1BAF3A161CFBE6AE00ACE490 /* RobotOnLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */; };
@@ -124,6 +127,12 @@
 		1B7D73981CFD37AF005856A4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		1B7D739A1CFD37B8005856A4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1B7D739C1CFD37CD005856A4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		1B8A93C01D129E5300084C1E /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		1B8A93C11D129E5300084C1E /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		1B8A93C21D129E5300084C1E /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		1B8A93C31D129E5300084C1E /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		1B8A93C61D12AE3600084C1E /* ResetPWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPWViewController.h; sourceTree = "<group>"; };
+		1B8A93C71D12AE3600084C1E /* ResetPWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPWViewController.m; sourceTree = "<group>"; };
 		1BA516FC1D100AEC0002EABA /* RecentCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentCallViewController.h; sourceTree = "<group>"; };
 		1BA516FD1D100AEC0002EABA /* RecentCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentCallViewController.m; sourceTree = "<group>"; };
 		1BA516FF1D100B120002EABA /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
@@ -203,6 +212,7 @@
 		18F216851CF5999E00B66709 /* MePlusiPhone */ = {
 			isa = PBXGroup;
 			children = (
+				1B8A93BF1D129DDD00084C1E /* Tools */,
 				1B4253A41CFD880800610857 /* Agora */,
 				18F595781CF690C900055D84 /* Library */,
 				18F595761CF690A200055D84 /* Classes */,
@@ -295,6 +305,8 @@
 				1B18E8A81D0E691900699B28 /* LoginViewController.m */,
 				1B18E8AA1D0E696100699B28 /* RegisterViewController.h */,
 				1B18E8AB1D0E696100699B28 /* RegisterViewController.m */,
+				1B8A93C61D12AE3600084C1E /* ResetPWViewController.h */,
+				1B8A93C71D12AE3600084C1E /* ResetPWViewController.m */,
 				1BA516FC1D100AEC0002EABA /* RecentCallViewController.h */,
 				1BA516FD1D100AEC0002EABA /* RecentCallViewController.m */,
 				1BA516FF1D100B120002EABA /* SetViewController.h */,
@@ -362,6 +374,17 @@
 			);
 			name = Framework;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		1B8A93BF1D129DDD00084C1E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				1B8A93C01D129E5300084C1E /* SSKeychain.h */,
+				1B8A93C11D129E5300084C1E /* SSKeychain.m */,
+				1B8A93C21D129E5300084C1E /* SSKeychainQuery.h */,
+				1B8A93C31D129E5300084C1E /* SSKeychainQuery.m */,
+			);
+			name = Tools;
 			sourceTree = "<group>";
 		};
 		4554C0D6E8FE23300E81C6B8 /* Frameworks */ = {
@@ -576,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18617C421CF6B3C900822F19 /* LeftView.m in Sources */,
+				1B8A93C81D12AE3600084C1E /* ResetPWViewController.m in Sources */,
 				18F2168E1CF5999E00B66709 /* ViewController.m in Sources */,
 				1BAF3A161CFBE6AE00ACE490 /* RobotOnLineViewController.m in Sources */,
 				18F5957E1CF691B300055D84 /* UIViewController+Common.m in Sources */,
@@ -584,7 +608,9 @@
 				1B4253CC1CFD880800610857 /* AGDLoginViewController.m in Sources */,
 				1B4253C51CFD880800610857 /* AGDChatCell.m in Sources */,
 				1BA517011D100B120002EABA /* SetViewController.m in Sources */,
+				1B8A93C41D129E5300084C1E /* SSKeychain.m in Sources */,
 				1B18E8A91D0E691900699B28 /* LoginViewController.m in Sources */,
+				1B8A93C51D129E5300084C1E /* SSKeychainQuery.m in Sources */,
 				1B18E8AC1D0E696100699B28 /* RegisterViewController.m in Sources */,
 				18F2168B1CF5999E00B66709 /* AppDelegate.m in Sources */,
 				1B4253CE1CFD880800610857 /* AGDSplashViewController.m in Sources */,

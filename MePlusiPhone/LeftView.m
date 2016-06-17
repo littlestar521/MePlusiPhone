@@ -130,17 +130,23 @@
         case 100:
         {
             self.number.text = notification.userInfo[@"import"];
+            NSString *currentUsername = [AVUser currentUser].username;
+            self.number.text = currentUsername;
             
         }
             break;
         case 101:
         {
             self.number.text = notification.userInfo[@"import"];
+            NSString *currentEmail = [AVUser currentUser].email;
+            self.number.text = currentEmail;
+            MJJLog(@"%@  %@",currentEmail,self.number.text);
         }
             break;
         case 102:
         {
             self.number.text = notification.userInfo[@"import"];
+            
         }
             break;
             

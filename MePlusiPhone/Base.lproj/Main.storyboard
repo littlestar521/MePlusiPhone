@@ -5,6 +5,64 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--ResetPW View Controller-->
+        <scene sceneID="jC1-ew-snR">
+            <objects>
+                <viewController id="GsT-Du-p9L" customClass="ResetPWViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g4e-ZW-dyv"/>
+                        <viewControllerLayoutGuide type="bottom" id="oMf-Vh-sfV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bj4-dJ-kFU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yy7-St-Kb0">
+                                <rect key="frame" x="0.0" y="39" width="375" height="628"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="0P8-Kt-RTV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="628"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAD-TA-UOW">
+                                        <rect key="frame" x="36" y="500" width="303" height="1"/>
+                                        <color key="backgroundColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rmJ-Rg-CVd">
+                                        <rect key="frame" x="94" y="464" width="245" height="36"/>
+                                        <color key="textColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkL-2V-G2o">
+                                        <rect key="frame" x="44" y="534" width="303" height="52"/>
+                                        <state key="normal" title="Button" image="button_Modify_password_normal"/>
+                                        <connections>
+                                            <action selector="ResetPasswordAction:" destination="GsT-Du-p9L" eventType="touchUpInside" id="TEg-y6-ckD"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_Email_sign_up_normal" translatesAutoresizingMaskIntoConstraints="NO" id="Q0b-vl-6aR">
+                                        <rect key="frame" x="44" y="464" width="36" height="36"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="t6f-wU-X4Q"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="backView" destination="Yy7-St-Kb0" id="StM-p4-Wbg"/>
+                        <outlet property="emailTF" destination="rmJ-Rg-CVd" id="tb9-Ah-9N2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07X-fZ-sSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221.5" y="803.5"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -23,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1179.5" y="830.5"/>
+            <point key="canvasLocation" x="1344.5" y="793.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="w5B-ew-f5f">
@@ -71,12 +129,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="control_video_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Tre-GF-Obe">
-                                <rect key="frame" x="40" y="439" width="295" height="0.0"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="control_video_bg" translatesAutoresizingMaskIntoConstraints="NO" id="OFq-gK-MGH">
-                                <rect key="frame" x="40" y="504" width="295" height="0.0"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_phone_hilight" translatesAutoresizingMaskIntoConstraints="NO" id="fwo-dg-wPl">
                                 <rect key="frame" x="40" y="400" width="36" height="36"/>
                             </imageView>
@@ -87,23 +139,24 @@
                                 </state>
                                 <connections>
                                     <action selector="forgetPasswordBtn:" destination="pMI-4R-xaU" eventType="touchUpInside" id="iIH-Go-QEl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNm-u8-Sry">
-                                <rect key="frame" x="40" y="541" width="303" height="48"/>
-                                <state key="normal" title="Button" image="button_sign_in_normal"/>
-                                <connections>
-                                    <action selector="loginAction:" destination="pMI-4R-xaU" eventType="touchUpInside" id="Pph-hr-Rhf"/>
+                                    <segue destination="GsT-Du-p9L" kind="push" id="g1Y-PU-QgF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-kA-WJ3">
-                                <rect key="frame" x="40" y="597" width="303" height="34"/>
+                                <rect key="frame" x="40" y="606" width="303" height="34"/>
                                 <state key="normal" title="注册">
                                     <color key="titleColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="registerAction:" destination="pMI-4R-xaU" eventType="touchUpInside" id="kd9-N2-nkl"/>
                                     <segue destination="xdw-hU-6qA" kind="push" id="kbD-YH-QKr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNm-u8-Sry">
+                                <rect key="frame" x="40" y="548" width="303" height="55"/>
+                                <state key="normal" title="Button" image="button_sign_in_normal"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="pMI-4R-xaU" eventType="touchUpInside" id="Pph-hr-Rhf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -201,7 +254,7 @@
                                         <rect key="frame" x="113" y="61" width="149" height="61"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wat-nR-BFw">
-                                        <rect key="frame" x="40" y="483" width="303" height="50"/>
+                                        <rect key="frame" x="40" y="477" width="303" height="56"/>
                                         <state key="normal" title="Button" image="button_sign_up_normal"/>
                                         <connections>
                                             <action selector="registerACtion:" destination="xdw-hU-6qA" eventType="touchUpInside" id="laF-eU-Owz"/>
@@ -250,7 +303,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b5X-lj-sbz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.44391403109999999" green="0.14030921569999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -261,13 +314,30 @@
             </objects>
             <point key="canvasLocation" x="-68.5" y="803.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="WOe-W8-UEx">
+            <objects>
+                <viewController id="r0Z-3s-exK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J2z-DO-wkv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ncg-Ht-Lfz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Epw-OY-pFe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eHW-jY-oyA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="Background" width="1080" height="1920"/>
         <image name="Sign_in_logo" width="414" height="162"/>
+        <image name="button_Modify_password_normal" width="896" height="164"/>
         <image name="button_sign_in_normal" width="894" height="164"/>
         <image name="button_sign_up_normal" width="894" height="164"/>
-        <image name="control_video_bg" width="836" height="48"/>
         <image name="icon_Email_sign_up_normal" width="80" height="80"/>
         <image name="icon_password_normal" width="80" height="80"/>
         <image name="icon_phone_hilight" width="80" height="80"/>

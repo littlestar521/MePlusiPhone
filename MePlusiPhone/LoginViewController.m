@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "MePlus.pch"
 #import <AVOSCloud/AVOSCloud.h>
+#import "SSKeychain.h"
+
 // 如果使用了实时通信模块，请添加以下导入语句：
 //#import <AVOSCloudIM/AVOSCloudIM.h>
 
@@ -21,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;//登录
 
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
+
 
 - (IBAction)forgetPasswordBtn:(id)sender;
 - (IBAction)loginAction:(id)sender;
@@ -72,17 +75,15 @@
 
 - (IBAction)loginAction:(id)sender {
     
-    
-    
-    
     [AVUser logInWithUsernameInBackground:self.numberTF.text password:self.passwordTF.text block:^(AVUser *user, NSError *error) {
         if (user) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"login" object:nil userInfo:@{@"import":self.numberTF.text}];
-//            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示：" message:@"登陆成功^^*^^" preferredStyle:UIAlertControllerStyleAlert];
-//            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-//            [alert addAction:action];
-//            [self presentViewController:alert animated:YES completion:nil];
-            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示：" message:@"登陆成功^^*^^" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:action];
+            [self presentViewController:alert animated:YES completion:nil];
+            [self uuid];
+           
             UIStoryboard *SB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             ViewController *VC = [SB instantiateViewControllerWithIdentifier:@"ViewController"];
             [self.navigationController pushViewController:VC animated:YES];
@@ -92,6 +93,44 @@
         }
     }];
 }
+- (void)uuid{
+
+    NSString *uuid = [[[UIDevice currentDevice]identifierForVendor]UUIDString];
+    MJJLog(@"%@",uuid);
+
+    //获取objectid
+    AVObject *userid = [AVObject objectWithClassName:@"_User"];
+    [userid setObject:uuid  forKey:@"userUUID"];
+    [userid saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            MJJLog(@"!!!存储成功%@",userid.objectId);
+        }else{
+            MJJLog(@"####请检查网络环境以及SDK配置是否正确");
+        }
+    }];
+
+    AVObject *to = [AVObject objectWithClassName:@"_User" objectId:userid.objectId];
+    [to setObject:uuid forKey:@"userUUID"];
+    [to saveInBackground];
+    
+    AVObject *todo = [AVObject objectWithClassName:@"_User"];
+    [todo setObject:[NSString stringWithFormat:@"%@",uuid] forKey:@"userUUID"];
+//    [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            // 存储成功
+//            [todo setObject:[NSString stringWithFormat:@"%@",uuid]  forKey:@"userUUID"];
+//            [todo saveInBackground];
+//        } else {
+//            // 失败的话，请检查网络环境以及 SDK 配置是否正确
+//            MJJLog(@"error");
+//        }
+//    }];
+    
+    
+}
+
+
+
 
 - (IBAction)registerAction:(id)sender {
 }
