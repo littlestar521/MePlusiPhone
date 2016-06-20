@@ -8,6 +8,7 @@
 
 #import "ScanViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "SingleTon.h"
 
 @interface ScanViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 @property(nonatomic)BOOL isReading;
@@ -33,6 +34,10 @@
 
     
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    self.navigationController.navigationBar.barTintColor = kMainColor;
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     
 //    if (!_isReading) {
@@ -44,6 +49,8 @@
 //    }
 //    
 //    _isReading = !_isReading;
+    self.navigationController.navigationBar.barTintColor = [[UIColor blackColor] colorWithAlphaComponent:0.001];
+
     NSError *error;
     //第四步：
     //11.初始化捕捉设备（AVCaptureDevice），类型为AVMediaTypeVideo
@@ -146,8 +153,23 @@
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         //判断回传的数据类型
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
-            NSString *sting =[metadataObj stringValue];
-            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"扫描结果" message:sting preferredStyle:UIAlertControllerStyleAlert];
+            NSString *result =[metadataObj stringValue];
+            SingleTon *data = [SingleTon shareData];
+            data.robotNum = result;
+            
+//            AVObject *user = [AVObject objectWithClassName:@"Robot"];
+////            [user setObject:(id) forKey:<#(NSString *)#>]
+//            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (succeeded) {
+//                    MJJLog(@"%@",user.objectId);
+//                }
+//            }];
+            
+            AVQuery *query = [AVQuery queryWithClassName:@"Robot"];
+            [query whereKey:@"robotUUID" matchesRegex:data.robotNum];
+            
+            
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"扫描结果" message:result preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
                 _isReading = NO;
@@ -158,6 +180,7 @@
             [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
             //            [_startBtn setTitle:@"开始扫描" forState:UIControlStateNormal];
         }
+        
     }
 }
 //是否支持屏幕反转

@@ -11,6 +11,7 @@
 #import "LeftView.h"
 #import "RobotOnLineViewController.h"
 #import "AGDChatViewController.h"
+#import "SingleTon.h"
 
 static NSString *const AGDSegueID  = @"Chat";
 
@@ -34,9 +35,8 @@ static NSString *const AGDSegueID  = @"Chat";
 
     [self voiceAction];
     
-        //注册通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAction:) name:@"message" object:nil];
-//    self.roomNum = @"e3347dee5a6c11f5";
+    SingleTon *data = [SingleTon shareData];
+    self.roomNum = data.robotNum;
     
 //    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 //    self.vendorKey = [userDefaults objectForKey:AGDKeyVendorKey];
@@ -49,18 +49,6 @@ static NSString *const AGDSegueID  = @"Chat";
     
 }
 
-#pragma  mark --------------- 接收和移除通知
-//接收通知
-- (void)changeAction:(NSNotification *)notification{
-    self.roomNum = notification.userInfo[@"input"];
-}
-//移除通知
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-- (void)viewWillAppear:(BOOL)animated{
-    self.navigationController.navigationBarHidden = NO;
-}
 
 #pragma mark  ------------- appKey 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

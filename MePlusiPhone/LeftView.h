@@ -16,4 +16,6 @@
 @interface LeftView : UIView
 @property(nonatomic,assign)id<PushVCDelegate>delegate;
 
+- (void)dataWithMessage:(UILabel *)label;
+
 @end

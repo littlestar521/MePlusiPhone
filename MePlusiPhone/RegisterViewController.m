@@ -9,6 +9,9 @@
 #import "RegisterViewController.h"
 
 @interface RegisterViewController ()<UITextFieldDelegate>
+
+
+@property(nonatomic,strong)NSString *robotUUID;
 @property (weak, nonatomic) IBOutlet UITextField *numberTF;
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
 @property (weak, nonatomic) IBOutlet UITextField *password;
@@ -35,6 +38,8 @@
     self.password.delegate = self;
     self.makesureTF.delegate = self;
     
+
+    
 }
 #pragma mark ------------ 隐藏导航栏
 
@@ -60,10 +65,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//弹出键盘时，输入框上移至被隐藏
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    CGFloat offset = self.view.frame.size.height- (textField.frame.origin.y + textField.frame.size.height+216+80);
+    if (offset <= 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            CGRect frame = self.view.frame;
+            frame.origin.y = offset;
+            self.view.frame = frame;
+        }];
+    }
+    return YES;
+}
+//实现回收键盘时，输入框恢复原来的位置
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.y = 0.0;
+        self.view.frame = frame;
+    }];
+    return YES;
+}
+
 //注册
 - (IBAction)registerACtion:(id)sender {
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"email" object:nil userInfo:@{@"import":self.emailTF.text}];
+    [self relationClasses];
     
     if (![self checkOut]) {
         return;
@@ -76,14 +103,59 @@
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
+            
             //注册成功
-            MJJLog(@"恭喜您，已注册成功");
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"恭喜您，已注册成功" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:action];
+            [self presentViewController:alert animated:YES completion:nil];
+            
         }else{
             //注册失败
-            MJJLog(@"对不起，你注册的用户已存在");
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"你注册的用户已存在或邮箱有误" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:action];
+            [self presentViewController:alert animated:YES completion:nil];
+            
         }
     }];
+    
 
+
+}
+//关联表
+- (void)relationClasses{
+    NSString *uuid = [[[UIDevice currentDevice]identifierForVendor]UUIDString];
+    MJJLog(@"%@",uuid);
+    
+    AVObject *main = [[AVObject alloc]initWithClassName:@"user"];
+    
+    //    AVObject *user1 = [[AVObject alloc]initWithClassName:@"user"];
+    [main setObject:self.emailTF.text forKey:@"email"];
+    [main setObject:self.numberTF.text forKey:@"username"];
+    [main setObject:uuid forKey:@"userUUID"];
+    [main setObject:self.robotUUID forKey:@"robotUUID"];
+
+    
+    AVObject *user2 = [[AVObject alloc]initWithClassName:@"Robot"];
+    [user2 setObject:nil forKey:@"robotName"];
+    [user2 setObject:@"me+，机器人" forKey:@"robotDescription"];
+    [user2 setObject:self.robotUUID forKey:@"robotUUID"];
+
+    //
+    [AVObject saveAllInBackground:@[user2] block:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            MJJLog(@"链接出错");
+        }else{
+            AVRelation *relation = [main relationForKey:@"Robot"];
+            //            [relation addObject:user1];
+            [relation addObject:user2];
+            
+            [main saveInBackground];
+        }
+    }];
+    
+    
 }
 //登录
 - (IBAction)loginAction:(id)sender {

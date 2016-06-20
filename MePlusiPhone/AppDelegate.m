@@ -21,7 +21,7 @@ static sqlite3 *database = nil;
 @property(nonatomic)PubNub *client;
 @property(nonatomic,copy)NSString *authkey;
 //@property(nonatomic,copy,setter=setUUID:)NSString *uuid;
-@property(nonatomic,strong)NSString *channel1;
+@property(nonatomic,strong)NSString *channel;
 @property(nonatomic,strong)NSString *channel2;
 @property(nonatomic,strong)NSString *channelGroup1;
 @property(nonatomic,strong)NSTimer *timer;
@@ -48,10 +48,8 @@ static sqlite3 *database = nil;
     
     
     //PubNub
-    self.channel1 = @"bot";
-    self.channel2 = @"mych";
-    self.channelGroup1 = @"myChannelGroup";
-    self.authkey = @"myAuthKey";
+    self.channel = @"e3347dee5a6c11f5";//robotUUID
+    self.authkey = @"myAuthKey";//userUUID
     
 #pragma mark ------ kick the Tires
 //    [self tireKicker];
@@ -66,15 +64,6 @@ static sqlite3 *database = nil;
     self.client = [PubNub clientWithConfiguration:configuration];
     [self.client addListener:self];
     [self.client subscribeToChannels:@[@"my_channel"]  withPresence:YES];
-//
-//    //基本用法basic usage
-//    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-//    CFStringRef cfUUID = CFUUIDCreateString(kCFAllocatorDefault, uuid);
-//    if (uuid) {
-//        CFRelease(uuid);
-//    }
-//    [self.client addListener:self];
-    
     
     
 //    NSString *uniqueName = [[NSString alloc]initWithString:[(NSString )CFBridgingRelease(cfUUID)lowercaseString]];

@@ -16,6 +16,7 @@
 //#import <AVOSCloudIM/AVOSCloudIM.h>
 
 @interface LoginViewController ()<UITextFieldDelegate>
+@property(nonatomic,strong)NSString *robotUUID;
 
 @property (weak, nonatomic) IBOutlet UITextField *numberTF;//手机号
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;//密码
@@ -44,6 +45,8 @@
     self.numberTF.delegate = self;
     self.passwordTF.delegate = self;
     
+       
+    
     
 }
 #pragma mark ------------ 隐藏导航栏
@@ -63,6 +66,28 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
+//弹出键盘时，输入框上移至被隐藏
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    CGFloat offset = self.view.frame.size.height- (textField.frame.origin.y + textField.frame.size.height+216+80);
+    if (offset <= 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            CGRect frame = self.view.frame;
+            frame.origin.y = offset;
+            self.view.frame = frame;
+        }];
+    }
+    return YES;
+}
+//实现回收键盘时，输入框恢复原来的位置
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.y = 0.0;
+        self.view.frame = frame;
+    }];
+    return YES;
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -78,43 +103,44 @@
     [AVUser logInWithUsernameInBackground:self.numberTF.text password:self.passwordTF.text block:^(AVUser *user, NSError *error) {
         if (user) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"login" object:nil userInfo:@{@"import":self.numberTF.text}];
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示：" message:@"登陆成功^^*^^" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-            [alert addAction:action];
-            [self presentViewController:alert animated:YES completion:nil];
-            [self uuid];
+//            [self uuid];
            
             UIStoryboard *SB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             ViewController *VC = [SB instantiateViewControllerWithIdentifier:@"ViewController"];
             [self.navigationController pushViewController:VC animated:YES];
             
         }else{
-            MJJLog(@"%@",error);
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"您输入的账号或密码不正确，请核对后再输" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:action];
+            [self presentViewController:alert animated:YES completion:nil];
+
+            MJJLog(@"！！%@",error);
         }
     }];
 }
 - (void)uuid{
 
-    NSString *uuid = [[[UIDevice currentDevice]identifierForVendor]UUIDString];
-    MJJLog(@"%@",uuid);
-
+//    NSString *uuid = [[[UIDevice currentDevice]identifierForVendor]UUIDString];
+//    MJJLog(@"%@",uuid);
+//
     //获取objectid
-    AVObject *userid = [AVObject objectWithClassName:@"_User"];
-    [userid setObject:uuid  forKey:@"userUUID"];
-    [userid saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            MJJLog(@"!!!存储成功%@",userid.objectId);
-        }else{
-            MJJLog(@"####请检查网络环境以及SDK配置是否正确");
-        }
-    }];
+//    AVObject *userid = [AVObject objectWithClassName:@"_User"];
+//    [userid setObject:uuid  forKey:@"userUUID"];
+//    [userid saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            MJJLog(@"!!!存储成功%@",userid.objectId);
+//        }else{
+//            MJJLog(@"####请检查网络环境以及SDK配置是否正确");
+//        }
+//    }];
 
-    AVObject *to = [AVObject objectWithClassName:@"_User" objectId:userid.objectId];
-    [to setObject:uuid forKey:@"userUUID"];
-    [to saveInBackground];
-    
-    AVObject *todo = [AVObject objectWithClassName:@"_User"];
-    [todo setObject:[NSString stringWithFormat:@"%@",uuid] forKey:@"userUUID"];
+//    AVObject *to = [AVObject objectWithClassName:@"_User" objectId:userid.objectId];
+//    [to setObject:uuid forKey:@"userUUID"];
+//    [to saveInBackground];
+//    
+//    AVObject *todo = [AVObject objectWithClassName:@"_User"];
+//    [todo setObject:[NSString stringWithFormat:@"%@",uuid] forKey:@"userUUID"];
 //    [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
 //        if (succeeded) {
 //            // 存储成功

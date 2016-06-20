@@ -12,7 +12,7 @@
 #import "ScanViewController.h"
 
 
-@interface RobotOnLineViewController ()
+@interface RobotOnLineViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UITextField *robotNum;
 
 @end
@@ -35,6 +35,7 @@
     self.robotNum = [[UITextField alloc]initWithFrame:CGRectMake(20, kScreenHeight*2/3, kScreenWidth-40, 44)];
     self.robotNum.borderStyle = UITextBorderStyleLine;
     self.robotNum.placeholder = @"机器人ID";
+    self.robotNum.delegate = self;
     self.robotNum.textColor = kMainColor;
     [self.view addSubview:self.robotNum];
     //提示
@@ -66,9 +67,10 @@
     
     
 }
+//绑定机器人
 - (void)bindingRobotAction{
-    //发送通知
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"message" object:nil userInfo:@{@"input": self.robotNum.text}];
+    //uuid  = e3347dee5a6c11f5
+    //将机器人的uuid插入到数据库表中的robotUUID
     
     UIStoryboard *viewSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *VC = [viewSB instantiateViewControllerWithIdentifier:@"ViewController"];
@@ -76,12 +78,44 @@
     
     
 }
+//扫描二维码
 - (void)scanRobotAction{
-    //发送通知
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"message" object:nil userInfo:@{@"input": self.robotNum.text}];
+    
     ScanViewController *scanVC = [[ScanViewController alloc]init];
     [self.navigationController pushViewController:scanVC animated:YES];
     
+}
+#pragma mark ------------  回收键盘
+//点击键盘上return回收键盘
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+//点击空白处回收键盘
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+//弹出键盘时，输入框上移至被隐藏
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    CGFloat offset = self.view.frame.size.height- (textField.frame.origin.y + textField.frame.size.height+216+80);
+    if (offset <= 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            CGRect frame = self.view.frame;
+            frame.origin.y = offset;
+            self.view.frame = frame;
+        }];
+    }
+    return YES;
+}
+//实现回收键盘时，输入框恢复原来的位置
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.y = 0.0;
+        self.view.frame = frame;
+    }];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

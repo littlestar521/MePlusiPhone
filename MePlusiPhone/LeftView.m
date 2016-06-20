@@ -8,7 +8,7 @@
 
 #import "LeftView.h"
 #import "ViewController.h"
-
+#import "SingleTon.h"
 
 
 @interface LeftView ()
@@ -28,12 +28,14 @@
     }
     return self;
 }
+
 - (void)configView{
 
-    //注册通知
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeLabelText:) name:@"message" object:nil];
-    //注册通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLabelText:) name:@"login" object:nil];
+//    //注册通知
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeLabelText:) name:@"message" object:nil];
+//    //注册通知
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLabelText:) name:@"login" object:nil];
+    
     
     
     UIWindow *window = [[UIApplication sharedApplication].delegate  window];
@@ -47,7 +49,7 @@
     
     //信息展示view
     UIView *messageView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth-100, kScreenHeight/3)];
-    messageView.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.7];
+    messageView.backgroundColor = kMainColor;
     [self.setView addSubview:messageView];
     
     NSArray *userArray1 = @[@"用户名：",@"邮箱：",@"未绑定多我机器人"];
@@ -60,22 +62,23 @@
             userName.text = userArray1[i];
             userName.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:userName];
-            self.number = [[UILabel alloc]initWithFrame:CGRectMake(20+[widthArray1[i] integerValue], messageView.frame.size.height*2/3+24*i, 120, 24)];
-//            self.number.text = @"1222";
-//            number.backgroundColor = [UIColor yellowColor];
+            self.number = [[UILabel alloc]initWithFrame:CGRectMake(20+[widthArray1[i] integerValue], messageView.frame.size.height*2/3+24*i, 180, 24)];
+//           self.number.backgroundColor = [UIColor yellowColor];
             self.number.tag = i+100;
             self.number.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:self.number];
+            [self dataWithMessage:self.number];
         }else{
             UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(20, messageView.frame.size.height*2/3+24*i, [widthArray2[i] integerValue], 24)];
             userName.text = userArray2[i];
             userName.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:userName];
             UILabel *number = [[UILabel alloc]initWithFrame:CGRectMake(20+[widthArray2[i] integerValue], messageView.frame.size.height*2/3+24*i, 180, 24)];
-//            number.backgroundColor = [UIColor yellowColor];
+//            self.number.backgroundColor = [UIColor yellowColor];
             number.tag = i+100;
             number.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:number];
+            [self dataWithMessage:self.number];
         }
 
         
@@ -122,43 +125,26 @@
         self.backView.alpha = 0.0;
     }];
 }
-#pragma mark ----------- 通知
-//通知传值
-- (void)changeLabelText:(NSNotification *)notification{
-    self.robotNum = notification.userInfo[@"input"];
-    switch (self.number.tag) {
-        case 100:
-        {
-            self.number.text = notification.userInfo[@"import"];
-            NSString *currentUsername = [AVUser currentUser].username;
-            self.number.text = currentUsername;
+#pragma mark ----------- 传值
+//传值
+- (void)dataWithMessage:(UILabel *)label{
+    if (label.tag == 100) {
+        NSString *currentUsername = [AVUser currentUser].username;
+        self.number.text = currentUsername;
+    }else if (label.tag == 101){
+        NSString *currentEmail = [AVUser currentUser].email;
+        self.number.text = currentEmail;
+
+    }else{
+        if (self.robotNum == nil) {
             
+        }else{
+//            SingleTon *data = [SingleTon shareData];
+//            self.number.text = data.email;
         }
-            break;
-        case 101:
-        {
-            self.number.text = notification.userInfo[@"import"];
-            NSString *currentEmail = [AVUser currentUser].email;
-            self.number.text = currentEmail;
-            MJJLog(@"%@  %@",currentEmail,self.number.text);
-        }
-            break;
-        case 102:
-        {
-            self.number.text = notification.userInfo[@"import"];
-            
-        }
-            break;
-            
-        default:
-            break;
     }
 }
-//移除通知
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-}
-
+//leftView
 - (void)setSelectAction:(UIButton *)btn{
     [self disapearAction];
     switch (btn.tag) {
