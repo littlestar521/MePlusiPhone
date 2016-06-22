@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "SingleTon.h"
 
 @interface RegisterViewController ()<UITextFieldDelegate>
 
@@ -90,7 +91,6 @@
 
 //注册
 - (IBAction)registerACtion:(id)sender {
-    [self relationClasses];
     
     if (![self checkOut]) {
         return;
@@ -103,7 +103,7 @@
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            
+            [self relationClasses];
             //注册成功
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"恭喜您，已注册成功" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
@@ -129,27 +129,29 @@
     MJJLog(@"%@",uuid);
     
     AVObject *main = [[AVObject alloc]initWithClassName:@"user"];
-    
-    //    AVObject *user1 = [[AVObject alloc]initWithClassName:@"user"];
     [main setObject:self.emailTF.text forKey:@"email"];
     [main setObject:self.numberTF.text forKey:@"username"];
     [main setObject:uuid forKey:@"userUUID"];
-    [main setObject:self.robotUUID forKey:@"robotUUID"];
-
+    [main setObject:@"" forKey:@"robotUUID"];
     
     AVObject *user2 = [[AVObject alloc]initWithClassName:@"Robot"];
     [user2 setObject:nil forKey:@"robotName"];
     [user2 setObject:@"me+，机器人" forKey:@"robotDescription"];
-    [user2 setObject:self.robotUUID forKey:@"robotUUID"];
+    [user2 setObject:@"" forKey:@"robotUUID"];
 
-    //
-    [AVObject saveAllInBackground:@[user2] block:^(BOOL succeeded, NSError *error) {
+    [AVObject saveAllInBackground:@[main,user2] block:^(BOOL succeeded, NSError *error) {
         if (error) {
             MJJLog(@"链接出错");
         }else{
-            AVRelation *relation = [main relationForKey:@"Robot"];
-            //            [relation addObject:user1];
+            AVRelation *relation = [main relationForKey:@"containedToUsers"];
             [relation addObject:user2];
+            MJJLog(@"&&&&&&&&&&%@  %@",main.objectId,user2.objectId);
+            
+            SingleTon *singleTon = [SingleTon shareData];
+            singleTon.userid = main.objectId;
+            
+            SingleTon *singleTon1 = [SingleTon shareData];
+            singleTon1.robotid = user2.objectId;
             
             [main saveInBackground];
         }

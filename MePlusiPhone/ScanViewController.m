@@ -9,6 +9,7 @@
 #import "ScanViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "SingleTon.h"
+#import "ViewController.h"
 
 @interface ScanViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 @property(nonatomic)BOOL isReading;
@@ -31,7 +32,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self showBackBtnWithName:@""];
-
+    
+    
+    
     
 }
 - (void)viewWillDisappear:(BOOL)animated{
@@ -157,22 +160,32 @@
             SingleTon *data = [SingleTon shareData];
             data.robotNum = result;
             
-//            AVObject *user = [AVObject objectWithClassName:@"Robot"];
-////            [user setObject:(id) forKey:<#(NSString *)#>]
-//            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if (succeeded) {
-//                    MJJLog(@"%@",user.objectId);
-//                }
-//            }];
             
-            AVQuery *query = [AVQuery queryWithClassName:@"Robot"];
-            [query whereKey:@"robotUUID" matchesRegex:data.robotNum];
+            //user.userid  robot.robotid
             
+            AVQuery *query = [AVQuery queryWithClassName:@"user"];
+            SingleTon *user = [SingleTon shareData];
+//            MJJLog(@"user.id = %@ %@ ",user.userid,user.robotid);
+            [query getObjectInBackgroundWithId:user.userid block:^(AVObject *object, NSError *error) {
+                MJJLog(@"%@",[object objectForKey:@"username"]);
+                [object setObject:data.robotNum forKey:@"robotUUID"];
+                [object saveInBackground];
+            }];
+            
+            AVQuery *query1 = [AVQuery queryWithClassName:@"Robot"];
+            [query1 getObjectInBackgroundWithId:user.robotid block:^(AVObject *object, NSError *error) {
+                [object setObject:data.robotNum forKey:@"robotUUID"];
+                [object saveInBackground];
+            }];
             
             UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"扫描结果" message:result preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
                 _isReading = NO;
+                UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                ViewController *VC = [sb instantiateViewControllerWithIdentifier:@"ViewController"];
+                [self.navigationController pushViewController:VC animated:YES];
+                
             }
                                      ];
             [alertVC addAction:action];
@@ -188,8 +201,6 @@
 {
     return NO;
 }
-
-
 
 
 

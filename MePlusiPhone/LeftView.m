@@ -139,8 +139,8 @@
         if (self.robotNum == nil) {
             
         }else{
-//            SingleTon *data = [SingleTon shareData];
-//            self.number.text = data.email;
+            SingleTon *data = [SingleTon shareData];
+            self.number.text = data.robotNum;
         }
     }
 }

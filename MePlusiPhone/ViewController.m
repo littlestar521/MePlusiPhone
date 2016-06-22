@@ -48,7 +48,9 @@ static NSString *const AGDSegueID  = @"Chat";
 
     
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden = NO;
+}
 
 #pragma mark  ------------- appKey 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

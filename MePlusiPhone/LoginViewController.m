@@ -99,11 +99,10 @@
 }
 
 - (IBAction)loginAction:(id)sender {
-    
+
+    //self.numberTF.text
     [AVUser logInWithUsernameInBackground:self.numberTF.text password:self.passwordTF.text block:^(AVUser *user, NSError *error) {
         if (user) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"login" object:nil userInfo:@{@"import":self.numberTF.text}];
-//            [self uuid];
            
             UIStoryboard *SB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             ViewController *VC = [SB instantiateViewControllerWithIdentifier:@"ViewController"];
@@ -119,44 +118,6 @@
         }
     }];
 }
-- (void)uuid{
-
-//    NSString *uuid = [[[UIDevice currentDevice]identifierForVendor]UUIDString];
-//    MJJLog(@"%@",uuid);
-//
-    //获取objectid
-//    AVObject *userid = [AVObject objectWithClassName:@"_User"];
-//    [userid setObject:uuid  forKey:@"userUUID"];
-//    [userid saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            MJJLog(@"!!!存储成功%@",userid.objectId);
-//        }else{
-//            MJJLog(@"####请检查网络环境以及SDK配置是否正确");
-//        }
-//    }];
-
-//    AVObject *to = [AVObject objectWithClassName:@"_User" objectId:userid.objectId];
-//    [to setObject:uuid forKey:@"userUUID"];
-//    [to saveInBackground];
-//    
-//    AVObject *todo = [AVObject objectWithClassName:@"_User"];
-//    [todo setObject:[NSString stringWithFormat:@"%@",uuid] forKey:@"userUUID"];
-//    [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            // 存储成功
-//            [todo setObject:[NSString stringWithFormat:@"%@",uuid]  forKey:@"userUUID"];
-//            [todo saveInBackground];
-//        } else {
-//            // 失败的话，请检查网络环境以及 SDK 配置是否正确
-//            MJJLog(@"error");
-//        }
-//    }];
-    
-    
-}
-
-
-
 
 - (IBAction)registerAction:(id)sender {
 }
