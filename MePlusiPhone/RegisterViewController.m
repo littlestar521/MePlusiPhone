@@ -95,32 +95,26 @@
     if (![self checkOut]) {
         return;
     }
-    //注册
-    AVUser *user = [AVUser user];//新建AVUser对象实例
-    user.username = self.numberTF.text;//设置用户名
-    user.password = self.password.text;//设置密码
-    user.email = self.emailTF.text;//设置邮箱
-    
+    [self relationClasses];
+    AVUser *user = [AVUser user];
+    user.username = self.numberTF.text;
+    user.password = self.password.text;
+    user.email = self.emailTF.text;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [self relationClasses];
             //注册成功
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"恭喜您，已注册成功" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
             [alert addAction:action];
             [self presentViewController:alert animated:YES completion:nil];
-            
         }else{
             //注册失败
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"你注册的用户已存在或邮箱有误" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
             [alert addAction:action];
             [self presentViewController:alert animated:YES completion:nil];
-            
         }
     }];
-    
-
 
 }
 //关联表
@@ -131,6 +125,7 @@
     AVObject *main = [[AVObject alloc]initWithClassName:@"user"];
     [main setObject:self.emailTF.text forKey:@"email"];
     [main setObject:self.numberTF.text forKey:@"username"];
+    [main setObject:self.password.text forKey:@"password"];
     [main setObject:uuid forKey:@"userUUID"];
     [main setObject:@"" forKey:@"robotUUID"];
     
@@ -145,18 +140,16 @@
         }else{
             AVRelation *relation = [main relationForKey:@"containedToUsers"];
             [relation addObject:user2];
-            MJJLog(@"&&&&&&&&&&%@  %@",main.objectId,user2.objectId);
             
             SingleTon *singleTon = [SingleTon shareData];
             singleTon.userid = main.objectId;
             
-            SingleTon *singleTon1 = [SingleTon shareData];
-            singleTon1.robotid = user2.objectId;
+//            SingleTon *singleTon1 = [SingleTon shareData];
+            singleTon.robotid = user2.objectId;
             
             [main saveInBackground];
         }
     }];
-    
     
 }
 //登录

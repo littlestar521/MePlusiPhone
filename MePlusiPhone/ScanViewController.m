@@ -160,7 +160,6 @@
             SingleTon *data = [SingleTon shareData];
             data.robotNum = result;
             
-            
             //user.userid  robot.robotid
             
             AVQuery *query = [AVQuery queryWithClassName:@"user"];

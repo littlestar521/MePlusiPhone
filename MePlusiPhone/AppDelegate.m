@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "GuideViewController.h"
+#import "ViewController.h"
+#import "RegisterViewController.h"
 #import <PubNub/PubNub.h>
 #import <sqlite3.h>
 
@@ -39,6 +42,38 @@ static sqlite3 *database = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    //判断是不是第一次使用
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"firstLaunch"]) {
+        //停留3秒再进主界面
+        [NSThread sleepForTimeInterval:3.0];
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstLaunch"];
+        MJJLog(@"第一次启动");
+    }else{
+        //停留3秒再进主界面
+        [NSThread sleepForTimeInterval:3.0];
+        AVUser *currentUser = [AVUser currentUser];
+        if (currentUser != nil) {
+            //跳转到首页
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ViewController *VC = [sb instantiateViewControllerWithIdentifier:@"ViewController"];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
+            nav.navigationBar.barTintColor = kMainColor;
+            self.window.rootViewController = nav;
+        }else{
+        //缓存用户对象为空时，可打开用户注册界面
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            RegisterViewController *registerVC = [sb instantiateViewControllerWithIdentifier:@"RegisterVC"];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:registerVC];
+            nav.navigationBar.barTintColor = kMainColor;
+            self.window.rootViewController = nav;
+            MJJLog(@"不是第一次启动");
+            
+        }
+        
+    }
+    
     
     //LeanCloud
     [AVOSCloud setApplicationId:kLAppID clientKey:kLAppKey];

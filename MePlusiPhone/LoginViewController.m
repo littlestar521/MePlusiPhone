@@ -117,6 +117,9 @@
             MJJLog(@"！！%@",error);
         }
     }];
+    
+    
+    
 }
 
 - (IBAction)registerAction:(id)sender {

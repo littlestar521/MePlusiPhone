@@ -74,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344.5" y="793.5"/>
+            <point key="canvasLocation" x="1616.5" y="803.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="w5B-ew-f5f">
@@ -166,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAL-VW-Z18" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="357.5" y="803.5"/>
+            <point key="canvasLocation" x="354.5" y="803.5"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="fHS-ci-tIF">
@@ -307,22 +307,32 @@
             </objects>
             <point key="canvasLocation" x="-68.5" y="803.5"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="WOe-W8-UEx">
+        <!--Guide View Controller-->
+        <scene sceneID="VLI-zr-CzG">
             <objects>
-                <viewController id="r0Z-3s-exK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GuideVC" id="doU-o9-3FL" customClass="GuideViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="J2z-DO-wkv"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ncg-Ht-Lfz"/>
+                        <viewControllerLayoutGuide type="top" id="zDZ-QJ-hae"/>
+                        <viewControllerLayoutGuide type="bottom" id="qra-vg-0ud"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Epw-OY-pFe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <view key="view" contentMode="scaleToFill" id="thf-1f-MjS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="XZh-fq-I9r">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dQL-0t-FIG">
+                                <rect key="frame" x="93" y="172" width="188" height="99"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eHW-jY-oyA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxW-Jx-4BW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-394.5" y="59.5"/>
         </scene>
     </scenes>
     <resources>
@@ -337,6 +347,6 @@
         <image name="logo" width="484" height="246"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SE1-Dq-Lvw"/>
+        <segue reference="Pzy-3g-6Bd"/>
     </inferredMetricsTieBreakers>
 </document>

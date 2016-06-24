@@ -23,8 +23,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self showBackBtnWithName:@"绑定机器人"];
+    self.navigationController.navigationBar.tintColor = kMainColor;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.backgroundColor = kMainColor;
     [self robotOnLine];
     
     

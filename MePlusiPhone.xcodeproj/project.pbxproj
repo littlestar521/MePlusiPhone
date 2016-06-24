@@ -22,6 +22,7 @@
 		1B0801F21D0E935500BC0773 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0801F11D0E935500BC0773 /* libicucore.tbd */; };
 		1B0801F41D0E94D900BC0773 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0801F31D0E94D900BC0773 /* AVOSCloud.framework */; };
 		1B0801F61D0E94E500BC0773 /* AVOSCloudCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0801F51D0E94E500BC0773 /* AVOSCloudCrashReporting.framework */; };
+		1B0E37791D1A30DC00A4481B /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E37781D1A30DC00A4481B /* GuideViewController.m */; };
 		1B18E8A91D0E691900699B28 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B18E8A81D0E691900699B28 /* LoginViewController.m */; };
 		1B18E8AC1D0E696100699B28 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B18E8AB1D0E696100699B28 /* RegisterViewController.m */; };
 		1B18E8AE1D0E736300699B28 /* PubNub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B18E8AD1D0E736300699B28 /* PubNub.framework */; };
@@ -99,6 +100,8 @@
 		1B0801F11D0E935500BC0773 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		1B0801F31D0E94D900BC0773 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = MePlusiPhone/AVOSCloud.framework; sourceTree = "<group>"; };
 		1B0801F51D0E94E500BC0773 /* AVOSCloudCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloudCrashReporting.framework; path = MePlusiPhone/AVOSCloudCrashReporting.framework; sourceTree = "<group>"; };
+		1B0E37771D1A30DC00A4481B /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		1B0E37781D1A30DC00A4481B /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
 		1B18E8A71D0E691900699B28 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1B18E8A81D0E691900699B28 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1B18E8AA1D0E696100699B28 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 		18F5957B1CF6914500055D84 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1B0E37771D1A30DC00A4481B /* GuideViewController.h */,
+				1B0E37781D1A30DC00A4481B /* GuideViewController.m */,
 				1BAF3A141CFBE6AE00ACE490 /* RobotOnLineViewController.h */,
 				1BAF3A151CFBE6AE00ACE490 /* RobotOnLineViewController.m */,
 				1BD28DCF1D178CBB009B65B8 /* SingleTon.h */,
@@ -620,6 +625,7 @@
 				1B18E8AC1D0E696100699B28 /* RegisterViewController.m in Sources */,
 				18F2168B1CF5999E00B66709 /* AppDelegate.m in Sources */,
 				1B4253CE1CFD880800610857 /* AGDSplashViewController.m in Sources */,
+				1B0E37791D1A30DC00A4481B /* GuideViewController.m in Sources */,
 				18F216881CF5999E00B66709 /* main.m in Sources */,
 				1BA516FE1D100AEC0002EABA /* RecentCallViewController.m in Sources */,
 			);
@@ -782,6 +788,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -823,6 +830,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

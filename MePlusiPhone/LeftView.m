@@ -35,7 +35,8 @@
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeLabelText:) name:@"message" object:nil];
 //    //注册通知
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLabelText:) name:@"login" object:nil];
-    
+    SingleTon *data = [SingleTon shareData];
+    self.robotNum = data.robotid;
     
     
     UIWindow *window = [[UIApplication sharedApplication].delegate  window];
@@ -67,7 +68,6 @@
             self.number.tag = i+100;
             self.number.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:self.number];
-            [self dataWithMessage:self.number];
         }else{
             UILabel *userName = [[UILabel alloc]initWithFrame:CGRectMake(20, messageView.frame.size.height*2/3+24*i, [widthArray2[i] integerValue], 24)];
             userName.text = userArray2[i];
@@ -78,8 +78,9 @@
             number.tag = i+100;
             number.font = [UIFont systemFontOfSize:14];
             [messageView addSubview:number];
-            [self dataWithMessage:self.number];
         }
+        [self dataWithMessage:self.number];
+
 
         
     }
@@ -139,8 +140,8 @@
         if (self.robotNum == nil) {
             
         }else{
-            SingleTon *data = [SingleTon shareData];
-            self.number.text = data.robotNum;
+//            SingleTon *data = [SingleTon shareData];
+            self.number.text = self.robotNum;
         }
     }
 }

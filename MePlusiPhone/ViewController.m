@@ -17,7 +17,7 @@ static NSString *const AGDSegueID  = @"Chat";
 
 @interface ViewController ()
 @property(nonatomic,strong)UIButton *actionBtn;
-@property(nonatomic,strong)NSString *vendorKey;
+//@property(nonatomic,strong)NSString *vendorKey;
 @property(nonatomic,strong)NSString *roomNum;
 @property(nonatomic,strong)UIView *lightView;
 @property(nonatomic,strong)UILabel *tipLabel;
@@ -32,16 +32,13 @@ static NSString *const AGDSegueID  = @"Chat";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self showLeftBtnWithName:@"首页"];
-
-    [self voiceAction];
     
-    SingleTon *data = [SingleTon shareData];
-    self.roomNum = data.robotNum;
+    [self voiceAction];
     
 //    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 //    self.vendorKey = [userDefaults objectForKey:AGDKeyVendorKey];
 //    if (self.vendorKey) {
-        self.vendorKey = kAppKey;
+//        self.vendorKey = kAppKey;
 //    }else{
 //        MJJLog(@"1234空值");
 //    }
@@ -58,7 +55,7 @@ static NSString *const AGDSegueID  = @"Chat";
         return;
     }
     AGDChatViewController *chatVC = segue.destinationViewController;
-    chatVC.dictionary = @{AGDKeyChannel:self.roomNum,AGDKeyVendorKey:self.vendorKey};
+    chatVC.dictionary = @{AGDKeyChannel:self.roomNum,AGDKeyVendorKey:kAppKey};
     UIButton *button = (UIButton *)sender;
     if (button.tag == 1) {
         chatVC.chatType = AGDChatTypeDefault;
@@ -103,6 +100,9 @@ static NSString *const AGDSegueID  = @"Chat";
 }
 //
 - (void)robotOnLineAction:(UIButton *)btn{
+    SingleTon *data = [SingleTon shareData];
+    self.roomNum = data.robotNum;
+
     switch (btn.tag) {
         case 1:
         {
@@ -122,11 +122,11 @@ static NSString *const AGDSegueID  = @"Chat";
                 self.lightView.frame = CGRectMake(0, kScreenHeight-70, kScreenWidth, 120);
                 
             }];
-            if (self.vendorKey.length && self.roomNum.length) {
-                MJJLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
+            if (kAppKey.length && self.roomNum.length) {
+                MJJLog(@"appKey  = %@,roomNum = %@",kAppKey,self.roomNum);
 //                return YES;
             }else{
-                MJJLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
+                MJJLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",kAppKey,self.roomNum);
 //                return NO;
             }
 
@@ -136,8 +136,10 @@ static NSString *const AGDSegueID  = @"Chat";
             }else{
 
                 UIStoryboard *agdSB = [UIStoryboard storyboardWithName:@"Chat" bundle:nil];
-                AGDChatViewController *AGDVC = [agdSB instantiateViewControllerWithIdentifier:@"AGDChatViewController"];
-                [self.navigationController pushViewController:AGDVC animated:YES];
+                AGDChatViewController *AGDChatVC = [agdSB instantiateViewControllerWithIdentifier:@"AGDChatViewController"];
+                AGDChatVC.dictionary =   @{AGDKeyChannel: self.roomNum,
+                                           AGDKeyVendorKey: kAppKey};
+                [self.navigationController pushViewController:AGDChatVC animated:YES];
             }
         }
             break;
@@ -151,23 +153,23 @@ static NSString *const AGDSegueID  = @"Chat";
     // Dispose of any resources that can be recreated.
 }
 //视频界面
-//- (IBAction)RTVAction:(id)sender {
-//    if ([self isValidInput]) {
-////        [self performSegueWithIdentifier:AGDSegueID sender:sender];
-//        
-//    }
-//}
-//- (BOOL)isValidInput{
-//    [self.view endEditing:YES];
-//    if (self.vendorKey.length && self.roomNum.length) {
-//        
-//        MJJLog(@"appKey  = %@,roomNum = %@",self.vendorKey,self.roomNum);
-//        return YES;
-//    }else{
-//        MJJLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",self.vendorKey,self.roomNum);
-//        
-//    return NO;
-//    }
-//}
+- (IBAction)RTVAction:(id)sender {
+    if ([self isValidInput]) {
+        [self performSegueWithIdentifier:AGDSegueID sender:sender];
+        
+    }
+}
+- (BOOL)isValidInput{
+    [self.view endEditing:YES];
+    if (kAppKey.length && self.roomNum.length) {
+        
+        MJJLog(@"#######请求成功 appKey  = %@,roomNum = %@",kAppKey,self.roomNum);
+        return YES;
+    }else{
+        MJJLog(@"####请求失败##### = %@ ,$$$$$$$$ = %@",kAppKey,self.roomNum);
+        
+    return NO;
+    }
+}
 
 @end
