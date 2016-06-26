@@ -41,6 +41,8 @@
 	<array>
 		<string>audio</string>
 	</array>
+	<key>UILaunchImageFile</key>
+	<string></string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -55,7 +57,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UILaunchImageFile</key>
-	<string></string>
 </dict>
 </plist>

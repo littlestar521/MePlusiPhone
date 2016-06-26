@@ -32,9 +32,6 @@
 		1B4253C81CFD880800610857 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B4253AE1CFD880800610857 /* Main.strings */; };
 		1B4253C91CFD880800610857 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B4253B01CFD880800610857 /* Images.xcassets */; };
 		1B4253CB1CFD880800610857 /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B4253B21CFD880800610857 /* Launch.xib */; };
-		1B4253CC1CFD880800610857 /* AGDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4253B51CFD880800610857 /* AGDLoginViewController.m */; };
-		1B4253CE1CFD880800610857 /* AGDSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4253B91CFD880800610857 /* AGDSplashViewController.m */; };
-		1B4253D41CFD907B00610857 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4253D31CFD907B00610857 /* Chat.storyboard */; };
 		1B7D73911CFD3782005856A4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73901CFD3782005856A4 /* AudioToolbox.framework */; };
 		1B7D73931CFD378B005856A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73921CFD378B005856A4 /* AVFoundation.framework */; };
 		1B7D73951CFD3796005856A4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7D73941CFD3796005856A4 /* CoreMedia.framework */; };
@@ -52,6 +49,7 @@
 		1BD28DD11D178CBB009B65B8 /* SingleTon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD28DD01D178CBB009B65B8 /* SingleTon.m */; };
 		1BF384EA1CFE7894000F2179 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E71CFDA53C00610857 /* AgoraRtcEngineKit.framework */; };
 		1BF384EB1CFE78AF000F2179 /* libCrasheye.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4253E91CFDA54900610857 /* libCrasheye.a */; };
+		3320E5DB1D1CF24A00D6D02B /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3320E5DA1D1CF24A00D6D02B /* Chat.storyboard */; };
 		E67ABAA8885DC7E6AF044257 /* Pods_MePlusiPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA600BD6338EF61340D18CB4 /* Pods_MePlusiPhone.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,13 +113,8 @@
 		1B4253AF1CFD880800610857 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1B4253B01CFD880800610857 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1B4253B21CFD880800610857 /* Launch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Launch.xib; sourceTree = "<group>"; };
-		1B4253B41CFD880800610857 /* AGDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGDLoginViewController.h; sourceTree = "<group>"; };
-		1B4253B51CFD880800610857 /* AGDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGDLoginViewController.m; sourceTree = "<group>"; };
-		1B4253B81CFD880800610857 /* AGDSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGDSplashViewController.h; sourceTree = "<group>"; };
-		1B4253B91CFD880800610857 /* AGDSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGDSplashViewController.m; sourceTree = "<group>"; };
 		1B4253BF1CFD880800610857 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1B4253C01CFD880800610857 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		1B4253D31CFD907B00610857 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		1B4253E71CFDA53C00610857 /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcEngineKit.framework; path = libs/AgoraRtcEngineKit.framework; sourceTree = "<group>"; };
 		1B4253E91CFDA54900610857 /* libCrasheye.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCrasheye.a; path = libs/Crasheye/libCrasheye.a; sourceTree = "<group>"; };
 		1B7D73901CFD3782005856A4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -147,6 +140,7 @@
 		1BAFEF691D04871400C48753 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		1BD28DCF1D178CBB009B65B8 /* SingleTon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleTon.h; sourceTree = "<group>"; };
 		1BD28DD01D178CBB009B65B8 /* SingleTon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleTon.m; sourceTree = "<group>"; };
+		3320E5DA1D1CF24A00D6D02B /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		54917B8BC958C190AF945225 /* Pods-MePlusiPhone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MePlusiPhone.release.xcconfig"; path = "Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone.release.xcconfig"; sourceTree = "<group>"; };
 		8A4C720AD6BC3CA047400848 /* Pods-MePlusiPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MePlusiPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MePlusiPhone/Pods-MePlusiPhone.debug.xcconfig"; sourceTree = "<group>"; };
 		EA600BD6338EF61340D18CB4 /* Pods_MePlusiPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MePlusiPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,7 +287,6 @@
 		18F5957A1CF6913A00055D84 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1B4253D31CFD907B00610857 /* Chat.storyboard */,
 				18617C401CF6B3C900822F19 /* LeftView.h */,
 				18617C411CF6B3C900822F19 /* LeftView.m */,
 			);
@@ -331,10 +324,9 @@
 				1B4253A71CFD880800610857 /* Chat */,
 				1B4253AC1CFD880800610857 /* Localizable.strings */,
 				1B4253AE1CFD880800610857 /* Main.strings */,
+				3320E5DA1D1CF24A00D6D02B /* Chat.storyboard */,
 				1B4253B01CFD880800610857 /* Images.xcassets */,
 				1B4253B21CFD880800610857 /* Launch.xib */,
-				1B4253B31CFD880800610857 /* Login */,
-				1B4253B71CFD880800610857 /* Splash */,
 			);
 			name = Agora;
 			path = AgoraDemo;
@@ -349,24 +341,6 @@
 				1B4253AB1CFD880800610857 /* AGDChatViewController.m */,
 			);
 			path = Chat;
-			sourceTree = "<group>";
-		};
-		1B4253B31CFD880800610857 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				1B4253B41CFD880800610857 /* AGDLoginViewController.h */,
-				1B4253B51CFD880800610857 /* AGDLoginViewController.m */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		1B4253B71CFD880800610857 /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				1B4253B81CFD880800610857 /* AGDSplashViewController.h */,
-				1B4253B91CFD880800610857 /* AGDSplashViewController.m */,
-			);
-			path = Splash;
 			sourceTree = "<group>";
 		};
 		1B7D73A01CFD3A52005856A4 /* Framework */ = {
@@ -534,7 +508,7 @@
 				1B4253CB1CFD880800610857 /* Launch.xib in Resources */,
 				18F216931CF5999E00B66709 /* Assets.xcassets in Resources */,
 				1B4253C81CFD880800610857 /* Main.strings in Resources */,
-				1B4253D41CFD907B00610857 /* Chat.storyboard in Resources */,
+				3320E5DB1D1CF24A00D6D02B /* Chat.storyboard in Resources */,
 				18F216911CF5999E00B66709 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,7 +590,6 @@
 				1BD28DD11D178CBB009B65B8 /* SingleTon.m in Sources */,
 				1B4253C61CFD880800610857 /* AGDChatViewController.m in Sources */,
 				1BAFEF6A1D04871400C48753 /* ScanViewController.m in Sources */,
-				1B4253CC1CFD880800610857 /* AGDLoginViewController.m in Sources */,
 				1B4253C51CFD880800610857 /* AGDChatCell.m in Sources */,
 				1BA517011D100B120002EABA /* SetViewController.m in Sources */,
 				1B8A93C41D129E5300084C1E /* SSKeychain.m in Sources */,
@@ -624,7 +597,6 @@
 				1B8A93C51D129E5300084C1E /* SSKeychainQuery.m in Sources */,
 				1B18E8AC1D0E696100699B28 /* RegisterViewController.m in Sources */,
 				18F2168B1CF5999E00B66709 /* AppDelegate.m in Sources */,
-				1B4253CE1CFD880800610857 /* AGDSplashViewController.m in Sources */,
 				1B0E37791D1A30DC00A4481B /* GuideViewController.m in Sources */,
 				18F216881CF5999E00B66709 /* main.m in Sources */,
 				1BA516FE1D100AEC0002EABA /* RecentCallViewController.m in Sources */,

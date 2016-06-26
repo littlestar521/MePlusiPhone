@@ -44,6 +44,8 @@
 @property (strong, nonatomic) NSTimer *durationTimer;
 @property (nonatomic) NSUInteger duration;
 
+@property(nonatomic,strong)AGDChatViewController *chatVC;
+
 @property (strong, nonatomic) UIAlertView *errorKeyAlert;
 
 @end
@@ -67,6 +69,8 @@
 //    [self selectSpeakerButtons:YES];
     [self initAgoraKit];
     NSLog(@"self: %@", self);
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -75,6 +79,37 @@
     self.videoMainView.frame = self.videoMainView.superview.bounds; // video view's autolayout cause crash
     [self joinChannel];
 }
+
+#pragma mark ----------   界面横屏显示
+//横屏显示
+- (void)viewWillAppear:(BOOL)animated{
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        SEL selector = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        int val = UIInterfaceOrientationLandscapeRight;
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
+    }
+
+    
+}
+
+
+//- (BOOL)shouldAutorotate{
+//    return [self.chatVC shouldAutorotate];
+//}
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+//{
+//        return [self.chatVC supportedInterfaceOrientations];
+//
+//}
+//-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//{
+//    return UIInterfaceOrientationLandscapeLeft;
+//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

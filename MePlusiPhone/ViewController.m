@@ -47,6 +47,16 @@ static NSString *const AGDSegueID  = @"Chat";
 }
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        SEL selector = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        int val = UIInterfaceOrientationPortrait;
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
+    }
+
 }
 
 #pragma mark  ------------- appKey 
@@ -63,6 +73,7 @@ static NSString *const AGDSegueID  = @"Chat";
 }
 - (void)resultAction:(UIButton *)btn{
 }
+
 #pragma mark ---------------- voice
 - (void)voiceAction{
     
