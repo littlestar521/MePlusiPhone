@@ -38,7 +38,7 @@
     
 }
 - (void)viewWillDisappear:(BOOL)animated{
-    self.navigationController.navigationBar.barTintColor = kMainColor;
+//    self.navigationController.navigationBar.barTintColor = kMainColor;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,7 +52,7 @@
 //    }
 //    
 //    _isReading = !_isReading;
-    self.navigationController.navigationBar.barTintColor = [[UIColor blackColor] colorWithAlphaComponent:0.001];
+//    self.navigationController.navigationBar.barTintColor = [[UIColor blackColor] colorWithAlphaComponent:0.001];
 
     NSError *error;
     //第四步：
@@ -160,21 +160,18 @@
             SingleTon *data = [SingleTon shareData];
             data.robotNum = result;
             
-            //user.userid  robot.robotid
-            
-            AVQuery *query = [AVQuery queryWithClassName:@"user"];
+            AVQuery *query = [AVQuery queryWithClassName:@"_User"];
             SingleTon *user = [SingleTon shareData];
-//            MJJLog(@"user.id = %@ %@ ",user.userid,user.robotid);
-            [query getObjectInBackgroundWithId:user.userid block:^(AVObject *object, NSError *error) {
-                MJJLog(@"%@",[object objectForKey:@"username"]);
-                [object setObject:data.robotNum forKey:@"robotUUID"];
-                [object saveInBackground];
-            }];
+//            MJJLog(@"!!!!!! userid = %@  robotid = %@",user.userid,user.robotid);
             
+            [query getObjectInBackgroundWithId:user.userid block:^(AVObject *object, NSError *error) {
+                    [object setObject:data.robotNum forKey:@"robotUUID"];
+                    [object saveInBackground];
+            }];
             AVQuery *query1 = [AVQuery queryWithClassName:@"Robot"];
             [query1 getObjectInBackgroundWithId:user.robotid block:^(AVObject *object, NSError *error) {
-                [object setObject:data.robotNum forKey:@"robotUUID"];
-                [object saveInBackground];
+                    [object setObject:data.robotNum forKey:@"robotUUID"];
+                    [object saveInBackground];
             }];
             
             UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"扫描结果" message:result preferredStyle:UIAlertControllerStyleAlert];

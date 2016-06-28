@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "SingleTon.h"
+#import "ViewController.h"
 
 @interface RegisterViewController ()<UITextFieldDelegate>
 
@@ -95,16 +96,37 @@
     if (![self checkOut]) {
         return;
     }
-    [self relationClasses];
     AVUser *user = [AVUser user];
     user.username = self.numberTF.text;
     user.password = self.password.text;
     user.email = self.emailTF.text;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
+            NSString *uuid = [[[UIDevice currentDevice]identifierForVendor]UUIDString];
+            AVObject *main = [AVObject objectWithClassName:@"_User" objectId:user.objectId];
+            [main setObject:uuid forKey:@"userUUID"];
+//            [main setObject:@"" forKey:@"robotUUID"];
+            [main saveInBackground];
+            AVObject *robot = [AVObject objectWithClassName:@"Robot"];
+            [robot saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    SingleTon *singleTon = [SingleTon shareData];
+                    singleTon.userid = main.objectId;
+                    singleTon.robotid = robot.objectId;
+                }
+            }];
+            
             //注册成功
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"恭喜您，已注册成功" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [AVUser logInWithUsernameInBackground:user.username  password:user.password block:^(AVUser *user, NSError *error) {
+                    if (user) {
+                        UIStoryboard *SB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                        ViewController *VC = [SB instantiateViewControllerWithIdentifier:@"ViewController"];
+                        [self.navigationController pushViewController:VC animated:YES];
+                    }
+                }];
+            }];
             [alert addAction:action];
             [self presentViewController:alert animated:YES completion:nil];
         }else{
@@ -122,7 +144,7 @@
     NSString *uuid = [[[UIDevice currentDevice]identifierForVendor]UUIDString];
     MJJLog(@"%@",uuid);
     
-    AVObject *main = [[AVObject alloc]initWithClassName:@"user"];
+    AVObject *main = [[AVObject alloc]initWithClassName:@"_User"];
     [main setObject:self.emailTF.text forKey:@"email"];
     [main setObject:self.numberTF.text forKey:@"username"];
     [main setObject:self.password.text forKey:@"password"];
@@ -134,20 +156,16 @@
     [user2 setObject:@"me+，机器人" forKey:@"robotDescription"];
     [user2 setObject:@"" forKey:@"robotUUID"];
 
-    [AVObject saveAllInBackground:@[main,user2] block:^(BOOL succeeded, NSError *error) {
+    [AVObject saveAllInBackground:@[user2] block:^(BOOL succeeded, NSError *error) {
         if (error) {
             MJJLog(@"链接出错");
         }else{
             AVRelation *relation = [main relationForKey:@"containedToUsers"];
             [relation addObject:user2];
             
-            SingleTon *singleTon = [SingleTon shareData];
-            singleTon.userid = main.objectId;
-            
-//            SingleTon *singleTon1 = [SingleTon shareData];
-            singleTon.robotid = user2.objectId;
             
             [main saveInBackground];
+            
         }
     }];
     

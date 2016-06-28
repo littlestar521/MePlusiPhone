@@ -45,8 +45,22 @@
 @property (nonatomic) NSUInteger duration;
 
 @property(nonatomic,strong)AGDChatViewController *chatVC;
-
 @property (strong, nonatomic) UIAlertView *errorKeyAlert;
+
+@property (weak, nonatomic) IBOutlet UIButton *rundownBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *runupBtn;
+@property (weak, nonatomic) IBOutlet UIButton *runleftBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *runrightBtn;
+
+- (IBAction)runupAction:(id)sender;
+
+- (IBAction)rundownAction:(id)sender;
+
+- (IBAction)runleftAction:(id)sender;
+
+- (IBAction)runrightAction:(id)sender;
 
 @end
 
@@ -463,4 +477,15 @@
     return _errorKeyAlert;
 }
 
+- (IBAction)runupAction:(id)sender {
+}
+
+- (IBAction)rundownAction:(id)sender {
+}
+
+- (IBAction)runleftAction:(id)sender {
+}
+
+- (IBAction)runrightAction:(id)sender {
+}
 @end

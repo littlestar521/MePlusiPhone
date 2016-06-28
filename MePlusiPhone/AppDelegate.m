@@ -59,6 +59,7 @@ static sqlite3 *database = nil;
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             ViewController *VC = [sb instantiateViewControllerWithIdentifier:@"ViewController"];
             UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
+//            nav.navigationBar.barTintColor = kMainColor;
             nav.navigationBar.barTintColor = kMainColor;
             self.window.rootViewController = nav;
         }else{

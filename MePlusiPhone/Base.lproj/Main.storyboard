@@ -67,7 +67,22 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="1ff-eC-Gcv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="robot" translatesAutoresizingMaskIntoConstraints="NO" id="CLc-Gf-sIo">
+                                <rect key="frame" x="122" y="482" width="130" height="185"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVw-IG-B5m">
+                                <rect key="frame" x="87" y="213" width="200" height="200"/>
+                                <state key="normal" image="wake_up_normal"/>
+                                <connections>
+                                    <action selector="wakeupAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NuS-Kk-xvI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0Ay-kR-ynM"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -260,7 +275,7 @@
                                         </state>
                                         <connections>
                                             <action selector="loginAction:" destination="xdw-hU-6qA" eventType="touchUpInside" id="ZrO-37-urF"/>
-                                            <segue destination="pMI-4R-xaU" kind="push" id="SE1-Dq-Lvw"/>
+                                            <segue destination="pMI-4R-xaU" kind="push" id="xrd-uG-PIQ"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_Email_sign_up_normal" translatesAutoresizingMaskIntoConstraints="NO" id="f46-zb-Ukw">
@@ -285,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ybb-td-feG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782.5" y="803.5"/>
+            <point key="canvasLocation" x="807.5" y="782.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m6U-tN-IPZ">
@@ -345,8 +360,10 @@
         <image name="icon_password_normal" width="80" height="80"/>
         <image name="icon_phone_hilight" width="80" height="80"/>
         <image name="logo" width="484" height="246"/>
+        <image name="robot" width="253" height="354"/>
+        <image name="wake_up_normal" width="538" height="538"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pzy-3g-6Bd"/>
+        <segue reference="xrd-uG-PIQ"/>
     </inferredMetricsTieBreakers>
 </document>
