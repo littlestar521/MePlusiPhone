@@ -105,17 +105,16 @@
             NSString *uuid = [[[UIDevice currentDevice]identifierForVendor]UUIDString];
             AVObject *main = [AVObject objectWithClassName:@"_User" objectId:user.objectId];
             [main setObject:uuid forKey:@"userUUID"];
-//            [main setObject:@"" forKey:@"robotUUID"];
             [main saveInBackground];
-            AVObject *robot = [AVObject objectWithClassName:@"Robot"];
-            [robot saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
+//            AVObject *robot = [AVObject objectWithClassName:@"Robot"];
+//            [robot saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (succeeded) {
                     SingleTon *singleTon = [SingleTon shareData];
                     singleTon.userid = main.objectId;
-                    singleTon.robotid = robot.objectId;
-                }
-            }];
-            
+//                    singleTon.robotid = robot.objectId;
+//                }
+//            }];
+//            
             //注册成功
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"恭喜您，已注册成功" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

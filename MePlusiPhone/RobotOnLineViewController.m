@@ -8,6 +8,7 @@
 
 #import "RobotOnLineViewController.h"
 #import "MePlus.pch"
+#import "SingleTon.h"
 #import "ViewController.h"
 #import "ScanViewController.h"
 
@@ -69,14 +70,19 @@
 }
 //绑定机器人
 - (void)bindingRobotAction{
-    //uuid  = e3347dee5a6c11f5
     //将机器人的uuid插入到数据库表中的robotUUID
-    
-    UIStoryboard *viewSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController *VC = [viewSB instantiateViewControllerWithIdentifier:@"ViewController"];
-    [self.navigationController pushViewController:VC animated:YES];
-    
-    
+    if (self.robotNum.text.length <= 16) {
+        AVObject *user =[AVObject objectWithClassName:@"_User" objectId:[AVUser currentUser].objectId];
+        [user setObject:self.robotNum.text forKey:@"robotUUID"];
+        // 保存到云端
+        [user saveInBackground];
+        SingleTon *data = [SingleTon shareData];
+        data.robotNum = self.robotNum.text;
+        
+        UIStoryboard *viewSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *VC = [viewSB instantiateViewControllerWithIdentifier:@"ViewController"];
+        [self.navigationController pushViewController:VC animated:YES];
+    }
 }
 //扫描二维码
 - (void)scanRobotAction{

@@ -36,7 +36,8 @@
 //    //注册通知
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLabelText:) name:@"login" object:nil];
     SingleTon *data = [SingleTon shareData];
-    self.robotNum = data.robotid;
+    self.robotNum = data.robotNum;
+    MJJLog(@"!!!!!!!!%@",self.robotNum);
     
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;

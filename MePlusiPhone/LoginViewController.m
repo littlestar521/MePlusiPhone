@@ -99,27 +99,20 @@
 }
 
 - (IBAction)loginAction:(id)sender {
-
     //self.numberTF.text
     [AVUser logInWithUsernameInBackground:self.numberTF.text password:self.passwordTF.text block:^(AVUser *user, NSError *error) {
         if (user) {
-           
             UIStoryboard *SB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             ViewController *VC = [SB instantiateViewControllerWithIdentifier:@"ViewController"];
             [self.navigationController pushViewController:VC animated:YES];
-            
         }else{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"您输入的账号或密码不正确，请核对后再输" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
             [alert addAction:action];
             [self presentViewController:alert animated:YES completion:nil];
-
-            MJJLog(@"！！%@",error);
         }
     }];
-    
-    
-    
+ 
 }
 
 - (IBAction)registerAction:(id)sender {

@@ -157,22 +157,39 @@
         //判断回传的数据类型
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             NSString *result =[metadataObj stringValue];
-            SingleTon *data = [SingleTon shareData];
-            data.robotNum = result;
+//            AVQuery *query = [AVQuery queryWithClassName:@"Robot"];
+//            [query whereKeyExists:@"robotUUID"];
+//            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//            }];
+            if (result.length <= 16) {
+                SingleTon *data = [SingleTon shareData];
+                data.robotNum = result;
+                AVObject *user =[AVObject objectWithClassName:@"_User" objectId:[AVUser currentUser].objectId];
+                [user setObject:result forKey:@"robotUUID"];
+                // 保存到云端
+                [user saveInBackground];
+
+            }else{
+                
+            }
             
-            AVQuery *query = [AVQuery queryWithClassName:@"_User"];
-            SingleTon *user = [SingleTon shareData];
+//            AVObject *robot = [AVObject objectWithClassName:@"Robot" objectId:data.robotid];
+//            [robot setObject:result forKey:@"robotUUID"];
+//            [robot saveInBackground];
+            
+//            AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+//            SingleTon *user = [SingleTon shareData];
 //            MJJLog(@"!!!!!! userid = %@  robotid = %@",user.userid,user.robotid);
             
-            [query getObjectInBackgroundWithId:user.userid block:^(AVObject *object, NSError *error) {
-                    [object setObject:data.robotNum forKey:@"robotUUID"];
-                    [object saveInBackground];
-            }];
-            AVQuery *query1 = [AVQuery queryWithClassName:@"Robot"];
-            [query1 getObjectInBackgroundWithId:user.robotid block:^(AVObject *object, NSError *error) {
-                    [object setObject:data.robotNum forKey:@"robotUUID"];
-                    [object saveInBackground];
-            }];
+//            [query getObjectInBackgroundWithId:user.userid block:^(AVObject *object, NSError *error) {
+//                    [object setObject:data.robotNum forKey:@"robotUUID"];
+//                    [object saveInBackground];
+//            }];
+//            AVQuery *query1 = [AVQuery queryWithClassName:@"Robot"];
+//            [query1 getObjectInBackgroundWithId:user.robotid block:^(AVObject *object, NSError *error) {
+//                    [object setObject:data.robotNum forKey:@"robotUUID"];
+//                    [object saveInBackground];
+//            }];
             
             UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"扫描结果" message:result preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
